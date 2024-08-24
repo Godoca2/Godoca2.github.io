@@ -3,12 +3,14 @@ layout: default
 title: "CESAR GODOY DELAIGUE"
 ---
 
-# CESAR GODOY DELAIGUE
-## DATA ANALYSIS + VISUALIZATION
+<div class="header">
+  <h1>CESAR GODOY DELAIGUE</h1>
+  <h2>DATA ANALYSIS + VISUALIZATION</h2>
+</div>
 
-Soy un ingeniero en [tu campo de especialización, por ejemplo, "hidrología"] convertido en analista de datos y desarrollador de visualización de datos. Mi trabajo es una mezcla de investigación, ciencia de datos, análisis y visualización que abarca una amplia gama de temas como [menciona temas específicos relevantes].
+<p>Soy un ingeniero en [tu campo de especialización, por ejemplo, "hidrología"] convertido en analista de datos y desarrollador de visualización de datos. Mi trabajo es una mezcla de investigación, ciencia de datos, análisis y visualización que abarca una amplia gama de temas como [menciona temas específicos relevantes].</p>
 
-Si estás interesado en trabajar juntos, no dudes en [contactarme](#contact).
+<p>Si estás interesado en trabajar juntos, no dudes en <a href="#contact">contactarme</a>.</p>
 
 <div class="social-links">
   <a href="https://twitter.com/tuusuario" target="_blank">Twitter</a> |
@@ -17,5 +19,6 @@ Si estás interesado en trabajar juntos, no dudes en [contactarme](#contact).
   <a href="tu-resume-link">Resume</a> |
   <a href="mailto:tuemail@ejemplo.com">Email</a>
 </div>
+
 
 
