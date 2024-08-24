@@ -1,20 +1,14 @@
-theme: minima
 title: "CESAR GODOY DELAIGUE"
-description: "Data Analysis + Visualization"
-baseurl: "/"
-url: "https://tuusuario.github.io"
+description: "Visualizaciones y Análisis de Datos"
+baseurl: ""  # Déjalo vacío si estás usando un repositorio de usuario
+url: "https://godoca2.github.io"
+theme: minima  # O cualquier tema de Jekyll que prefieras
 author:
   name: "Cesar Godoy Delaigue"
-  email: "tuemail@ejemplo.com"
-social_links:
-  twitter: "https://twitter.com/tuusuario"
-  github: "https://github.com/tuusuario"
-  linkedin: "https://www.linkedin.com/in/tuusuario/"
+  email: "cgodoy.delaigue@gmail.com"
 markdown: kramdown
 highlighter: rouge
 
-# Enlace a tu archivo de estilos personalizados
-include: ["assets/css/styles.css"]
 
 
 
