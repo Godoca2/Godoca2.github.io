@@ -1,6 +1,6 @@
 ## Visualizaciones y Análisis de Datos
 
-¡Bienvenido a mi portafolio en línea! Soy Cesar Godoy Delaigue, un especialista en visualización de datos y análisis de datos.
+¡Bienvenido a mi portafolio en línea! Soy César Godoy Delaigue, un especialista en visualización de datos y análisis de datos.
 
 ### Sobre Mí
 
