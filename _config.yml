@@ -1,17 +1,6 @@
-##theme: jekyll-theme-minimal  # Puedes cambiar este tema por cualquier otro tema soportado por GitHub Pages
-##title: César Godoy Delaigue Homepage  # Cambia esto por el título que quieras
-##description: Visualizaciones de Datos  # Cambia esto por la descripción que desees
-
+theme: jekyll-theme-minimal  # Puedes cambiar este tema por cualquier otro tema soportado por GitHub Pages
 title: "CESAR GODOY DELAIGUE"
 description: "Portafolio de Visualizaciones y Análisis de Datos"
-baseurl: "/"
 url: "https://godoca2.github.io"
-theme: minima
-author: 
-  name: "Cesar Godoy Delaigue"
-  email: "tuemail@ejemplo.com"
-social_links:
-  twitter: "https://twitter.com/tuusuario"
-  github: "https://github.com/tuusuario"
-  linkedin: "https://www.linkedin.com/in/tuusuario/"
+
 
