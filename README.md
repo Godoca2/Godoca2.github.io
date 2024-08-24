@@ -1,36 +1,21 @@
-## Visualizaciones y Análisis de Datos
+---
+layout: default
+title: "CESAR GODOY DELAIGUE"
+---
 
-¡Bienvenido a mi portafolio en línea! Soy Cesar Godoy Delaigue, un especialista en visualización de datos y análisis de datos.
+# CESAR GODOY DELAIGUE
+## DATA ANALYSIS + VISUALIZATION
 
-### Sobre Mí
+Soy un ingeniero en [tu campo de especialización, por ejemplo, "hidrología"] convertido en analista de datos y desarrollador de visualización de datos. Mi trabajo es una mezcla de investigación, ciencia de datos, análisis y visualización que abarca una amplia gama de temas como [menciona temas específicos relevantes].
 
-Soy un apasionado por transformar datos complejos en visualizaciones claras y comprensibles. Mi experiencia abarca desde la ciencia de datos hasta la creación de visualizaciones. Si estás interesado en colaborar o aprender más sobre mi trabajo, no dudes en contactarme.
+Si estás interesado en trabajar juntos, no dudes en [contactarme](#contact).
 
-### Proyectos Destacados
+<div class="social-links">
+  <a href="https://twitter.com/tuusuario" target="_blank">Twitter</a> |
+  <a href="https://github.com/tuusuario" target="_blank">GitHub</a> |
+  <a href="https://linkedin.com/in/tuusuario" target="_blank">LinkedIn</a> |
+  <a href="tu-resume-link">Resume</a> |
+  <a href="mailto:tuemail@ejemplo.com">Email</a>
+</div>
 
-Aquí encontrarás algunos de mis proyectos más destacados de visualización de datos:
-
-1. **Análisis de Exposición Ambiental**
-   - **Tecnologías Utilizadas:** D3.js, Mapbox, JavaScript
-   - **Descripción:** Este proyecto visualiza la exposición de los niños en programas de Head Start a riesgos ambientales en los Estados Unidos.
-   - [Ver Proyecto](#)
-
-2. **Inflación por Edad en los Estados Unidos**
-   - **Tecnologías Utilizadas:** R, ggplot2, Shiny
-   - **Descripción:** Un análisis interactivo de la inflación por grupos de edad en los Estados Unidos a lo largo del tiempo.
-   - [Ver Proyecto](#)
-
-3. **Costos de Vivienda para los Americanos**
-   - **Tecnologías Utilizadas:** Python, Svelte, D3.js
-   - **Descripción:** Visualización de los costos de vivienda para diferentes grupos demográficos en los EE. UU.
-   - [Ver Proyecto](#)
-
-### Contacto
-
-Para consultas, colaboraciones o simplemente para decir hola, puedes encontrarme en:
-- **GitHub:** https://github.com/Godoca2
-- **LinkedIn:** linkedin.com/in/césar-g-83005ab3
-- **Correo Electrónico:** c.godoyd@udd.cl
-
-¡Gracias por visitar mi portafolio!
 
