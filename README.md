@@ -5,7 +5,7 @@ title: "CESAR GODOY DELAIGUE"
 
 <div class="header">
   <h1>CESAR GODOY DELAIGUE</h1>
-  <h2>DATA ANALYSIS + VISUALIZATION</h2>
+  <h2>DATA ANALYST + VISUALIZATION</h2>
 </div>
 
 <p>Soy un Data Ingineer convertido en analista de datos y desarrollador de visualización de datos. Mi trabajo es una mezcla de investigación, ciencia de datos, análisis y visualización que abarca una amplia gama de temas como [menciona temas específicos relevantes].</p>
