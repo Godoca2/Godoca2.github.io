@@ -8,7 +8,7 @@ title: "CESAR GODOY DELAIGUE"
   <h2>DATA ANALYSIS + VISUALIZATION</h2>
 </div>
 
-<p>Soy un ingeniero en [tu campo de especialización, por ejemplo, "hidrología"] convertido en analista de datos y desarrollador de visualización de datos. Mi trabajo es una mezcla de investigación, ciencia de datos, análisis y visualización que abarca una amplia gama de temas como [menciona temas específicos relevantes].</p>
+<p>Soy un Data Ingineer convertido en analista de datos y desarrollador de visualización de datos. Mi trabajo es una mezcla de investigación, ciencia de datos, análisis y visualización que abarca una amplia gama de temas como [menciona temas específicos relevantes].</p>
 
 <p>Si estás interesado en trabajar juntos, no dudes en <a href="#contact">contactarme</a>.</p>
 
