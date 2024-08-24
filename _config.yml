@@ -1,6 +1,20 @@
-theme: minima  # Puedes cambiar este tema por cualquier otro tema soportado por GitHub Pages
+theme: minima
 title: "CESAR GODOY DELAIGUE"
-description: "Portafolio de Visualizaciones y Análisis de Datos"
-url: "https://godoca2.github.io"
+description: "Data Analysis + Visualization"
+baseurl: "/"
+url: "https://tuusuario.github.io"
+author:
+  name: "Cesar Godoy Delaigue"
+  email: "tuemail@ejemplo.com"
+social_links:
+  twitter: "https://twitter.com/tuusuario"
+  github: "https://github.com/tuusuario"
+  linkedin: "https://www.linkedin.com/in/tuusuario/"
+markdown: kramdown
+highlighter: rouge
+
+# Enlace a tu archivo de estilos personalizados
+include: ["assets/css/styles.css"]
+
 
 
