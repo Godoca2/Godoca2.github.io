@@ -1,13 +1,12 @@
+theme: minima
 title: "CESAR GODOY DELAIGUE"
-description: "Visualizaciones y Análisis de Datos"
-baseurl: ""  # Déjalo vacío si estás usando un repositorio de usuario
-url: "https://godoca2.github.io"
-theme: minima  # O cualquier tema de Jekyll que prefieras
-author:
-  name: "Cesar Godoy Delaigue"
-  email: "cgodoy.delaigue@gmail.com"
+description: "Data Analyst + Visualization"
+baseurl: "/"  # Mantén esto en '/' para indicar que está en la raíz
+
 markdown: kramdown
 highlighter: rouge
+include: ["assets/css/styles.css"]
+
 
 
 
