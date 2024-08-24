@@ -1,12 +1,10 @@
-# CESAR GODOY DELAIGUE
-
 ## Visualizaciones y Análisis de Datos
 
-¡Bienvenido a mi portafolio en línea! Soy Cesar Godoy Delaigue, un especialista en visualización de datos y análisis de datos con experiencia en una variedad de herramientas y tecnologías.
+¡Bienvenido a mi portafolio en línea! Soy Cesar Godoy Delaigue, un especialista en visualización de datos y análisis de datos.
 
 ### Sobre Mí
 
-Soy un apasionado por transformar datos complejos en visualizaciones claras y comprensibles. Mi experiencia abarca desde la ciencia de datos hasta la creación de visualizaciones interactivas que permiten una mejor toma de decisiones. Si estás interesado en colaborar o aprender más sobre mi trabajo, no dudes en contactarme.
+Soy un apasionado por transformar datos complejos en visualizaciones claras y comprensibles. Mi experiencia abarca desde la ciencia de datos hasta la creación de visualizaciones. Si estás interesado en colaborar o aprender más sobre mi trabajo, no dudes en contactarme.
 
 ### Proyectos Destacados
 
