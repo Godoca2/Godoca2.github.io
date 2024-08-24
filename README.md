@@ -1,5 +1,4 @@
 # CESAR GODOY DELAIGUE
-# CESAR GODOY DELAIGUE
 
 ## Visualizaciones y Análisis de Datos
 
