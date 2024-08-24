@@ -28,9 +28,9 @@ Aquí encontrarás algunos de mis proyectos más destacados de visualización de
 ### Contacto
 
 Para consultas, colaboraciones o simplemente para decir hola, puedes encontrarme en:
-- **GitHub:** [https://github.com/Godoca2]
-- **LinkedIn:** [linkedin.com/in/césar-g-83005ab3]
-- **Correo Electrónico:** [c.godoyd@udd.cl]
+- **GitHub:** https://github.com/Godoca2
+- **LinkedIn:** linkedin.com/in/césar-g-83005ab3
+- **Correo Electrónico:** c.godoyd@udd.cl
 
 ¡Gracias por visitar mi portafolio!
 
