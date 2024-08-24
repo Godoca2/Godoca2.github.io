@@ -1,4 +1,4 @@
-theme: jekyll-theme-minimal  # Puedes cambiar este tema por cualquier otro tema soportado por GitHub Pages
+theme: minima  # Puedes cambiar este tema por cualquier otro tema soportado por GitHub Pages
 title: "CESAR GODOY DELAIGUE"
 description: "Portafolio de Visualizaciones y Análisis de Datos"
 url: "https://godoca2.github.io"
