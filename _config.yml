@@ -1,11 +1,57 @@
-theme: minima
-title: "CESAR GODOY DELAIGUE"
-description: "Data Analyst + Visualization"
-baseurl: "/"  # Mantén esto en '/' para indicar que está en la raíz
+# --- Identidad ---
+title: "César Godoy Delaigue"
+description: "Líder de Tecnología | Ingeniero de Datos Senior | Data, GIS y Cloud para soluciones de gestión hídrica y ambiental"
+url: "https://godoca2.github.io"
 
-markdown: kramdown
-highlighter: rouge
-include: ["assets/css/styles.css"]
+
+# --- Tema y estilo ---
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+- jekyll-feed
+- jekyll-seo-tag
+- jekyll-sitemap
+
+
+# --- Navegación ---
+# El header del theme Cayman usa 'show_downloads' como botón; lo reutilizamos como CTA.
+show_downloads: false
+
+
+# Links del navbar (via layout personalizado de index.md)
+
+
+# --- Social ---
+linkedin: "https://www.linkedin.com/in/cesar-godoy-delaigue/" # <— actualiza
+email: "cgodoy.delaigue@gmail.com"
+github: "https://github.com/Godoca2"
+
+
+# --- Colecciones para proyectos ---
+collections:
+projects:
+output: true
+permalink: /projects/:name/
+
+
+# --- Defaults para los proyectos ---
+defaults:
+- scope:
+path: ""
+type: projects
+values:
+layout: project
+
+
+# --- SEO ---
+seo:
+name: "César Godoy Delaigue"
+type: "Person"
+
+
+# --- Sitemap ---
+sitemap:
+exclude:
+- assets/
 
 
 
