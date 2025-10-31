@@ -1,1 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{%- seo -%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+<section class="page-header">
+<h1 class="project-name">{{ site.title }}</h1>
+<h2 class="project-tagline">{{ site.description }}</h2>
+<a href="/contact/" class="btn">Contacto</a>
+<a href="/services/" class="btn">Servicios</a>
+<a href="/portfolio/" class="btn">Portafolio</a>
+<a href="/about/" class="btn">Sobre mí</a>
+</section>
 
+
+<section class="main-content">
+{{ content }}
+<footer class="site-footer">
+<span class="site-footer-owner">
+© {{ site.time | date: "%Y" }} {{ site.title }} · Hecho con GitHub Pages.
+</span>
+<span class="site-footer-credits">
+<a href="{{ site.github }}" target="_blank"><i class="fa-brands fa-github"></i></a>
+<a href="{{ site.linkedin }}" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+<a href="mailto:{{ site.email }}"><i class="fa-solid fa-envelope"></i></a>
+</span>
+</footer>
+</section>
+</body>
+</html>
