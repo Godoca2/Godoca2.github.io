@@ -1,53 +1,118 @@
 ---
 layout: default
+title: César Godoy Delaigue — Data Systems Architect
 ---
 
+<section class="hero">
+  <h1 class="hero-name">César Godoy Delaigue</h1>
+  <p class="hero-subtitle">Data Systems Architect</p>
+  <p class="hero-bio">Diseño e implemento plataformas de datos, pipelines de inteligencia artificial y soluciones de inteligencia geoespacial para organizaciones que necesitan tomar decisiones basadas en datos reales. Mi trabajo abarca data engineering, geospatial intelligence y AI/ML.</p>
+  <div class="hero-links">
+    <a href="{{ site.github }}" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="{{ site.linkedin }}" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <a href="mailto:{{ site.email }}"><i class="fa-solid fa-envelope"></i> Email</a>
+    <a href="/about/"><i class="fa-solid fa-file-lines"></i> Sobre mí</a>
+  </div>
+</section>
 
-# 👋 Hola, soy César
+<div class="container-narrow">
 
+  <div class="hero-divider"></div>
 
-**Líder de Tecnología** e **Ingeniero de Datos Senior**. Diseño e implemento sistemas de información, bases de datos y soluciones analíticas end‑to‑end para gestión hídrica, geocientífica y ambiental.
+  <!-- Solutions -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Dominios de Solución</h2>
+    </div>
 
+    <div class="grid grid-3">
+      {% assign sorted_solutions = site.solutions | sort: "order" %}
+      {% for sol in sorted_solutions %}
+      <div class="solution-card">
+        {% if sol.icon %}<span class="solution-icon">{{ sol.icon }}</span>{% endif %}
+        <h3><a href="{{ sol.url }}">{{ sol.title }}</a></h3>
+        <p>{{ sol.description }}</p>
+        <div class="card-tags">
+          {% for t in sol.tags %}
+          <span class="tag">{{ t }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
 
-<div class="hero-cta">
-<a class="btn" href="/services/">Ver servicios</a>
-<a class="btn" href="/portfolio/">Ver portafolio</a>
-<a class="btn" href="/contact/">Contactar</a>
-</div>
+  <!-- Featured Case Studies -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Casos de Estudio</h2>
+      <p>Problema → Arquitectura → Resultado → Impacto</p>
+    </div>
 
+    <div class="grid grid-2">
+      {% assign featured = site.case-studies | where: "featured", true %}
+      {% for cs in featured limit:4 %}
+      <div class="card">
+        <div class="card-image">
+          {% if cs.cover %}
+          <img src="{{ cs.cover }}" alt="{{ cs.title }}">
+          {% else %}
+          <span class="card-icon-placeholder"><i class="fa-solid fa-diagram-project"></i></span>
+          {% endif %}
+        </div>
+        <div class="card-tags">
+          {% for t in cs.tags limit:3 %}
+          <span class="tag">{{ t }}</span>
+          {% endfor %}
+        </div>
+        <h3><a href="{{ cs.url }}">{{ cs.title }}</a></h3>
+        <p>{{ cs.summary }}</p>
+      </div>
+      {% endfor %}
+    </div>
 
-## Áreas de especialización
-- **Data Engineering**: ETL, QA/QC, PostgreSQL y MS SQL, automatización.
-- **Business Intelligence**: Power BI, Tableau, Looker Studio.
-- **GIS & Geodatos**: ArcGIS Pro, QGIS, PostGIS, mapas bivariados.
-- **Cloud & DevOps**: GCP (BigQuery, Cloud Run, Cloud Storage, GEE), Docker, Railway.
-- **ML/AI**: Modelos predictivos, segmentación, MLOps.
+    <p class="text-center" style="margin-top: var(--space-2xl);">
+      <a class="btn btn-ghost" href="/case-studies/">Ver todos los casos →</a>
+    </p>
+  </section>
 
+  <!-- Metrics -->
+  <section class="section">
+    <div class="metrics">
+      {% for m in site.data.metrics %}
+      <div class="metric">
+        <span class="value">{{ m.value }}</span>
+        <span class="label">{{ m.label }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
 
-## Proyectos destacados
-<div class="grid">
-<div class="card">
-<h3>Portal Gestor Hídrico</h3>
-<p class="meta">PostgreSQL · Power BI · ArcGIS Pro</p>
-<p>Sistema unificado de análisis, control y visualización para recursos hídricos.</p>
-<p><a class="btn" href="/projects/portal-gestor-hidrico/">Ver</a></p>
-</div>
-<div class="card">
-<h3>Planificador Flow</h3>
-<p class="meta">Supabase · Railway · Node.js</p>
-<p>App de gestión de proyectos y tareas con base de datos centralizada.</p>
-<p><a class="btn" href="/projects/planificador-flow/">Ver</a></p>
-</div>
-<div class="card">
-<h3>Ciencia de Redes – Acuíferos</h3>
-<p class="meta">Python · NetworkX</p>
-<p>Modelamiento de flujos subterráneos con teoría de grafos.</p>
-<p><a class="btn" href="/projects/ciencia-de-redes-acuiferos/">Ver</a></p>
-</div>
-<div class="card">
-<h3>Predicción Propinas NYC</h3>
-<p class="meta">Python · MLflow</p>
-<p>Pipeline modular y evaluación mensual automatizada.</p>
-<p><a class="btn" href="/projects/nyc-tips-ml/">Ver</a></p>
-</div>
+  <!-- Skills -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Stack Tecnológico</h2>
+    </div>
+
+    <div class="skills-grid">
+      {% for group in site.data.skills %}
+      <div class="skill-group">
+        <h4>{{ group.category }}</h4>
+        <ul>
+          {% for item in group.items %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>¿Necesitas una solución de datos?</h2>
+    <p>Si buscas diseñar una plataforma de datos, implementar inteligencia geoespacial o automatizar procesos con IA, conversemos.</p>
+    <a class="btn btn-primary" href="/contact/">Iniciar conversación</a>
+  </section>
+
 </div>

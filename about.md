@@ -1,16 +1,58 @@
 ---
-layout: default
+layout: page
 title: Sobre mí
+permalink: /about/
+description: "Arquitecto de Sistemas de Datos con más de 12 años diseñando plataformas de datos, soluciones GIS y sistemas de inteligencia artificial."
 ---
 
+## Perfil Profesional
 
-# Sobre mí
+Soy **arquitecto de sistemas de datos** con más de 12 años de experiencia diseñando e implementando plataformas de datos, soluciones de inteligencia geoespacial y sistemas de IA/ML para organizaciones del sector hídrico, ambiental y geocientífico.
 
+Mi enfoque es construir **infraestructura de datos como sistemas**, no como colecciones de herramientas. Cada solución que diseño tiene un modelo de datos gobernado, pipelines automatizados con QA/QC, y una capa de presentación que transforma datos en decisiones.
 
-Líder del Área de Tecnología e Ingeniero de Datos Senior. Más de 12 años creando soluciones de datos, BI y SIG para gestión hídrica y ambiental. Candidato al Máster en Data Science (UDD).
+## Experiencia
 
+**Líder del Área de Tecnología** — Actualmente coordino equipos de SIG, Ingeniería de Datos y TI, con foco en gobierno de datos, calidad y entrega de proyectos con impacto medible.
 
-**Competencias clave**: Python, R, SQL, PostgreSQL, Power BI, Tableau, ArcGIS Pro, QGIS, PostGIS, GCP (BigQuery, Cloud Run, Cloud Storage, GEE), DevOps/MLOps.
+**Ingeniero de Datos Senior** — He diseñado y mantenido plataformas de datos centralizadas con PostgreSQL/PostGIS, pipelines ETL automatizados y dashboards ejecutivos en Power BI y Tableau.
 
+**Consultor GIS / Data Science** — He implementado soluciones de análisis espacial, modelos predictivos y sistemas de monitoreo ambiental para múltiples organizaciones.
 
-**Liderazgo**: coordinación de equipos de SIG, Desarrollo/Ingeniería de Datos y TI; gobierno de datos y calidad; entrega de proyectos con foco en impacto.
+## Formación
+
+- **Candidato a Máster en Data Science** — Universidad del Desarrollo (UDD)
+- Formación continua en Cloud Architecture (GCP), MLOps y geoinformática avanzada
+
+## Competencias Técnicas
+
+<div class="skills-grid">
+{% for group in site.data.skills %}
+<div class="skill-group">
+<h4>{{ group.category }}</h4>
+<ul>
+{% for item in group.items %}
+<li>{{ item }}</li>
+{% endfor %}
+</ul>
+</div>
+{% endfor %}
+</div>
+
+## Filosofía de Trabajo
+
+> Los datos no son un subproducto de las operaciones. Son **infraestructura estratégica** que debe ser diseñada, gobernada y mantenida con la misma rigurosidad que cualquier sistema de ingeniería.
+
+Mis principios:
+- **Sistemas sobre herramientas**: La tecnología cambia; la arquitectura bien diseñada perdura.
+- **Datos gobernados**: Cada dato debe tener un origen conocido, una validación aplicada y un uso definido.
+- **Pragmatismo sobre perfeccionismo**: Entregar valor incremental es mejor que diseñar la solución perfecta que nunca se implementa.
+- **Documentación como código**: Si no está documentado, no existe.
+
+---
+
+<div class="text-center">
+<a class="btn btn-primary" href="/contact/">Conversemos</a>
+<a class="btn btn-ghost" href="{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+<a class="btn btn-ghost" href="{{ site.github }}" target="_blank" rel="noopener">GitHub</a>
+</div>

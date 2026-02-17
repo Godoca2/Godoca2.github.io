@@ -1,42 +1,44 @@
-## Visualizaciones y Análisis de Datos
+# César Godoy Delaigue — Technical Profile
 
-¡Bienvenido a mi portafolio en línea! Soy César Godoy Delaigue, un especialista en visualización de datos y análisis de datos.
+**Data Systems Architect** · Geospatial Intelligence · AI/ML Engineering
 
-### Sobre Mí
+Sitio profesional estático construido con Jekyll + GitHub Pages.
 
-Soy un apasionado por transformar datos complejos en visualizaciones claras y comprensibles. Mi experiencia abarca desde la ciencia de datos hasta la creación de visualizaciones. Si estás interesado en colaborar o aprender más sobre mi trabajo, no dudes en contactarme.
+## Stack del sitio
 
-### Proyectos Destacados
+- **Engine**: Jekyll (GitHub Pages nativo)
+- **CSS**: Custom design system con dark/light theme (sin frameworks)
+- **JS**: Vanilla JS (~50 líneas: theme toggle, mobile nav)
+- **Fonts**: Inter + JetBrains Mono (Google Fonts)
+- **Icons**: Font Awesome 6
 
-Aquí encontrarás algunos de mis proyectos más destacados de visualización de datos:
+## Estructura
 
-1. **Análisis de Exposición Ambiental**
-   - **Tecnologías Utilizadas:** D3.js, Mapbox, JavaScript
-   - **Descripción:** Este proyecto visualiza la exposición de los niños en programas de Head Start a riesgos ambientales en los Estados Unidos.
-   - [Ver Proyecto](#)
+```
+_solutions/        → Dominios de solución (Data, GIS, AI)
+_case-studies/     → Casos de estudio (Problema→Arquitectura→Resultado→Impacto)
+_layouts/          → Plantillas: default, page, case-study, solution
+_includes/         → Componentes: nav, head, footer
+_data/             → Datos: navigation, skills, metrics
+assets/css/        → Design system completo
+assets/js/         → Theme toggle + interacciones
+```
 
-2. **Inflación por Edad en los Estados Unidos**
-   - **Tecnologías Utilizadas:** R, ggplot2, Shiny
-   - **Descripción:** Un análisis interactivo de la inflación por grupos de edad en los Estados Unidos a lo largo del tiempo.
-   - [Ver Proyecto](#)
+## Desarrollo local
 
-3. **Costos de Vivienda para los Americanos**
-   - **Tecnologías Utilizadas:** Python, Svelte, D3.js
-   - **Descripción:** Visualización de los costos de vivienda para diferentes grupos demográficos en los EE. UU.
-   - [Ver Proyecto](#)
+```bash
+gem install bundler jekyll
+bundle install
+bundle exec jekyll serve
+```
 
-### Contacto
+## Mantenimiento
 
-Para consultas, colaboraciones o simplemente para decir hola, puedes encontrarme en:
-- **GitHub:** https://github.com/Godoca2
-- **LinkedIn:** linkedin.com/in/césar-g-83005ab3
-- **Correo Electrónico:** c.godoyd@udd.cl
+Ver [MAINTENANCE.md](MAINTENANCE.md) para instrucciones detalladas.
 
-¡Gracias por visitar mi portafolio!
+## Licencia
 
-Si estás interesado en trabajar juntos, no dudes en [contactarme](mailto:cgodoy.delaigue@gmail.com).
-
-[GitHub](https://github.com/Godoca2) | [LinkedIn](linkedin.com/in/césar-g-83005ab3) | [Resume](#) | [Email](mailto:cgodoy.delaigue@gmail.com)
+© César Godoy Delaigue. Todos los derechos reservados.
 
 
 

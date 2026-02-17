@@ -1,0 +1,53 @@
+- category: Data Engineering
+  items:
+    - PostgreSQL / PostGIS
+    - MS SQL Server
+    - BigQuery
+    - ETL / ELT Pipelines
+    - Data Quality (QA/QC)
+    - Data Governance
+
+- category: Geospatial & GIS
+  items:
+    - ArcGIS Pro / Enterprise
+    - QGIS
+    - PostGIS
+    - Google Earth Engine
+    - Spatial Analysis
+    - Remote Sensing
+
+- category: AI / ML
+  items:
+    - Scikit-learn
+    - MLflow / MLOps
+    - Predictive Modeling
+    - Network Science
+    - NLP Pipelines
+    - Feature Engineering
+
+- category: Cloud & DevOps
+  items:
+    - GCP (BigQuery, Cloud Run, GCS)
+    - Docker
+    - Railway
+    - CI/CD Pipelines
+    - GitHub Actions
+    - Infrastructure as Code
+
+- category: BI & Visualization
+  items:
+    - Power BI
+    - Tableau
+    - Looker Studio
+    - Custom Dashboards
+    - Mapas Temáticos
+    - Reportes Automatizados
+
+- category: Languages & Tools
+  items:
+    - Python
+    - R
+    - SQL
+    - Node.js
+    - Git
+    - Linux / Shell

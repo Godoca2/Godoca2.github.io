@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+<div class="case-study-header">
+  {% if page.category %}
+  <span class="tag-pill tag-pill-accent">{{ page.category }}</span>
+  {% endif %}
+
+  <h1>{{ page.title }}</h1>
+
+  {% if page.summary %}
+  <p class="lead">{{ page.summary }}</p>
+  {% endif %}
+
+  <dl class="case-study-meta">
+    {% if page.client %}
+    <div>
+      <dt>Cliente / Sector</dt>
+      <dd>{{ page.client }}</dd>
+    </div>
+    {% endif %}
+    {% if page.role %}
+    <div>
+      <dt>Rol</dt>
+      <dd>{{ page.role }}</dd>
+    </div>
+    {% endif %}
+    {% if page.duration %}
+    <div>
+      <dt>Duración</dt>
+      <dd>{{ page.duration }}</dd>
+    </div>
+    {% endif %}
+    {% if page.stack %}
+    <div>
+      <dt>Stack</dt>
+      <dd>{{ page.stack }}</dd>
+    </div>
+    {% endif %}
+    {% if page.type %}
+    <div>
+      <dt>Tipo</dt>
+      <dd>{{ page.type }}</dd>
+    </div>
+    {% endif %}
+  </dl>
+</div>
+
+<div class="case-study-body">
+  {{ content }}
+
+  {% if page.repo %}
+  <p style="margin-top: 3rem;">
+    <a class="btn btn-ghost" href="{{ page.repo }}" target="_blank" rel="noopener">
+      <i class="fa-brands fa-github"></i> Ver repositorio
+    </a>
+  </p>
+  {% endif %}
+</div>

@@ -1,59 +1,67 @@
-# --- Identidad ---
+# ─────────────────────────────────────────────
+# César Godoy Delaigue — Technical Profile
+# ─────────────────────────────────────────────
+
 title: "César Godoy Delaigue"
-description: "Líder de Tecnología | Ingeniero de Datos Senior | Data, GIS y Cloud para soluciones de gestión hídrica y ambiental"
+description: "Data Systems Architect · Geospatial Intelligence · AI/ML Engineering"
+tagline: "Diseño e implemento plataformas de datos, sistemas de IA y soluciones de inteligencia geoespacial."
 url: "https://godoca2.github.io"
+baseurl: ""
+lang: "es"
 
-
-# --- Tema y estilo ---
-remote_theme: pages-themes/cayman@v0.2.0
-plugins:
-- jekyll-feed
-- jekyll-seo-tag
-- jekyll-sitemap
-
-
-# --- Navegación ---
-# El header del theme Cayman usa 'show_downloads' como botón; lo reutilizamos como CTA.
-show_downloads: false
-
-
-# Links del navbar (via layout personalizado de index.md)
-
-
-# --- Social ---
-linkedin: "https://www.linkedin.com/in/cesar-godoy-delaigue/" # <— actualiza
+# ── Social ──
+linkedin: "https://www.linkedin.com/in/cesar-godoy-delaigue/"
 email: "cgodoy.delaigue@gmail.com"
 github: "https://github.com/Godoca2"
 
+# ── Build ──
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
-# --- Colecciones para proyectos ---
+# ── Collections ──
 collections:
-projects:
-output: true
-permalink: /projects/:name/
+  solutions:
+    output: true
+    permalink: /solutions/:name/
+  case-studies:
+    output: true
+    permalink: /case-studies/:name/
 
-
-# --- Defaults para los proyectos ---
+# ── Defaults ──
 defaults:
-- scope:
-path: ""
-type: projects
-values:
-layout: project
+  - scope:
+      path: ""
+      type: solutions
+    values:
+      layout: solution
+  - scope:
+      path: ""
+      type: case-studies
+    values:
+      layout: case-study
+  - scope:
+      path: ""
+    values:
+      layout: page
 
-
-# --- SEO ---
+# ── SEO ──
 seo:
-name: "César Godoy Delaigue"
-type: "Person"
+  name: "César Godoy Delaigue"
+  type: "Person"
 
-
-# --- Sitemap ---
-sitemap:
+# ── Exclude ──
 exclude:
-- assets/
-
-
-
+  - README.md
+  - MAINTENANCE.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
 
 
