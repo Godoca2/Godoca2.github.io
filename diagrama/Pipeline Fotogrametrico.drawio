@@ -1,0 +1,182 @@
+<mxfile host="65bd71144e">
+    <diagram id="JJXvT5JMDjC9eTyVHqte" name="Página-1">
+        <mxGraphModel dx="629" dy="571" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="pipeline-fotogrametrico" name="Pipeline Fotogramétrico">
+        <mxGraphModel dx="18198" dy="16178" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="&lt;b style=&#39;font-size:20px; color:#1a1a1a;&#39;&gt;Pipeline Fotogramétrico Profesional&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:12px; color:#666;&#39;&gt;Flujo de trabajo end-to-end: Captura Aérea → Productos Topográficos&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="20" width="640" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="phase1-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;strokeWidth=1;arcSize=8;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="90" width="280" height="340" as="geometry"/>
+                </mxCell>
+                <mxCell id="phase1-title" value="&lt;b style=&#39;font-size:13px; color:#333;&#39;&gt;FASE 1&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:11px; color:#666;&#39;&gt;Planificación de Vuelo&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="100" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1-1" value="&lt;b&gt;Reconocimiento&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Definición de área,&lt;br&gt;restricciones y accesos&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="150" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1-2" value="&lt;b&gt;Plan de Vuelo&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;GSD objetivo • Overlap 80/70&lt;br&gt;Altura • Velocidad • Waypoints&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="215" width="220" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1-3" value="&lt;b&gt;GCPs&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Materialización de puntos&lt;br&gt;de control terrestre (GNSS)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=1.5;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="285" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1-4" value="&lt;b&gt;Ejecución del Vuelo&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;DJI Matrice 350/400 RTK&lt;br&gt;Captura fotogramétrica&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#333333;strokeWidth=2;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="350" width="220" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="a1-1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#555;strokeWidth=1.5;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="p1-1" target="p1-2"/>
+                <mxCell id="a1-2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#555;strokeWidth=1.5;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="p1-2" target="p1-3"/>
+                <mxCell id="a1-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#555;strokeWidth=1.5;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="p1-3" target="p1-4"/>
+                <mxCell id="phase2-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f4f8;strokeColor=#c0d0e0;strokeWidth=1;arcSize=8;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="90" width="280" height="340" as="geometry"/>
+                </mxCell>
+                <mxCell id="phase2-title" value="&lt;b style=&#39;font-size:13px; color:#333;&#39;&gt;FASE 2&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:11px; color:#666;&#39;&gt;Ajuste de Posiciones PPK&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="410" y="100" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2-1" value="&lt;b&gt;Descarga de Datos&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Archivos HCN del drone&lt;br&gt;+ datos base GNSS (RINEX)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4a6fa5;strokeWidth=1.5;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="150" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2-2" value="&lt;b&gt;Conversión HCN → RINEX&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Transformación de formato&lt;br&gt;nativo a estándar RINEX&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4a6fa5;strokeWidth=1.5;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="215" width="220" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2-3" value="&lt;b&gt;Post-Proceso PPK&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Corrección diferencial de&lt;br&gt;posiciones (precisión cm)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4a6fa5;strokeWidth=1.5;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="285" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2-4" value="&lt;b&gt;Fichero Corregido&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Posiciones georreferenciadas&lt;br&gt;con precisión centimétrica&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dce8f5;strokeColor=#4a6fa5;strokeWidth=2;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="350" width="220" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="a2-1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#4a6fa5;strokeWidth=1.5;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="p2-1" target="p2-2"/>
+                <mxCell id="a2-2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#4a6fa5;strokeWidth=1.5;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="p2-2" target="p2-3"/>
+                <mxCell id="a2-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#4a6fa5;strokeWidth=1.5;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="p2-3" target="p2-4"/>
+                <mxCell id="phase3-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4f8f0;strokeColor=#b5d0a0;strokeWidth=1;arcSize=8;" vertex="1" parent="1">
+                    <mxGeometry x="680" y="90" width="280" height="410" as="geometry"/>
+                </mxCell>
+                <mxCell id="phase3-title" value="&lt;b style=&#39;font-size:13px; color:#333;&#39;&gt;FASE 3&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:11px; color:#666;&#39;&gt;Procesamiento Fotogramétrico — Pix4D&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="100" width="240" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3-1" value="&lt;b&gt;Calibración de Cámaras&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Corrección de posición y&lt;br&gt;parámetros intrínsecos&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#5a8a3c;strokeWidth=1.5;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="150" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3-2" value="&lt;b&gt;Nube de Puntos Densa&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Generación de nube&lt;br&gt;de puntos preliminar&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#5a8a3c;strokeWidth=1.5;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="215" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3-3" value="&lt;b&gt;Integración de GCPs&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Importación de puntos de&lt;br&gt;control y optimización&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#5a8a3c;strokeWidth=1.5;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="280" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3-4" value="&lt;b&gt;QA/QC&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Limpieza y validación&lt;br&gt;de nube de puntos&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#5a8a3c;strokeWidth=1.5;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="345" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3-5" value="&lt;b&gt;Ortomosaico + DSM&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Productos base para&lt;br&gt;siguiente etapa&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f0d8;strokeColor=#5a8a3c;strokeWidth=2;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="410" width="220" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="a3-1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#5a8a3c;strokeWidth=1.5;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="p3-1" target="p3-2"/>
+                <mxCell id="a3-2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#5a8a3c;strokeWidth=1.5;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="p3-2" target="p3-3"/>
+                <mxCell id="a3-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#5a8a3c;strokeWidth=1.5;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="p3-3" target="p3-4"/>
+                <mxCell id="a3-4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#5a8a3c;strokeWidth=1.5;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="p3-4" target="p3-5"/>
+                <mxCell id="phase4-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf6ec;strokeColor=#d4b880;strokeWidth=1;arcSize=8;" vertex="1" parent="1">
+                    <mxGeometry x="1000" y="90" width="280" height="340" as="geometry"/>
+                </mxCell>
+                <mxCell id="phase4-title" value="&lt;b style=&#39;font-size:13px; color:#333;&#39;&gt;FASE 4&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:11px; color:#666;&#39;&gt;Productos GIS — Global Mapper&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="1050" y="100" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4-1" value="&lt;b&gt;Nube de Puntos .LAS&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Importación y clasificación&lt;br&gt;de nube de puntos&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b8922e;strokeWidth=1.5;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="1030" y="150" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4-2" value="&lt;b&gt;DEM / DTM&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Modelo Digital de Elevación&lt;br&gt;y Modelo Digital de Terreno&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b8922e;strokeWidth=1.5;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="1030" y="215" width="220" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4-3" value="&lt;b&gt;Curvas de Nivel&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Generación de isolíneas&lt;br&gt;para planos topográficos&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b8922e;strokeWidth=1.5;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="1030" y="285" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4-4" value="&lt;b&gt;Exportación GIS&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Shapefile • GeoTIFF • KML&lt;br&gt;para integración&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5ecd8;strokeColor=#b8922e;strokeWidth=2;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="1030" y="350" width="220" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="a4-1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#b8922e;strokeWidth=1.5;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="p4-1" target="p4-2"/>
+                <mxCell id="a4-2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#b8922e;strokeWidth=1.5;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="p4-2" target="p4-3"/>
+                <mxCell id="a4-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#b8922e;strokeWidth=1.5;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="p4-3" target="p4-4"/>
+                <mxCell id="phase5-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f0f4;strokeColor=#c8a0b0;strokeWidth=1;arcSize=8;" vertex="1" parent="1">
+                    <mxGeometry x="1320" y="90" width="260" height="340" as="geometry"/>
+                </mxCell>
+                <mxCell id="phase5-title" value="&lt;b style=&#39;font-size:13px; color:#333;&#39;&gt;FASE 5&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:11px; color:#666;&#39;&gt;Integración Minera — Vulcan&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="1360" y="100" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5-1" value="&lt;b&gt;Triangulación .00t&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Superficie triangulada&lt;br&gt;para modelo minero&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8a4a6a;strokeWidth=1.5;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="1340" y="150" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5-2" value="&lt;b&gt;Ortomosaico Integrado&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Imagen georreferenciada&lt;br&gt;sobre modelo 3D&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8a4a6a;strokeWidth=1.5;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="1340" y="215" width="220" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5-3" value="&lt;b&gt;Cubicaciones&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Cálculo de volúmenes&lt;br&gt;corte y relleno&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8a4a6a;strokeWidth=1.5;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="1340" y="285" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5-4" value="&lt;b&gt;Entrega Final&lt;/b&gt;&lt;br&gt;&lt;span style=&#39;font-size:10px;&#39;&gt;Reportes • Planos &lt;br&gt;Modelos 3D • QA/QC&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0dce8;strokeColor=#8a4a6a;strokeWidth=2;fontSize=11;fontColor=#333;" vertex="1" parent="1">
+                    <mxGeometry x="1340" y="350" width="220" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="a5-1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#8a4a6a;strokeWidth=1.5;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="p5-1" target="p5-2"/>
+                <mxCell id="a5-2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#8a4a6a;strokeWidth=1.5;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="p5-2" target="p5-3"/>
+                <mxCell id="a5-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#8a4a6a;strokeWidth=1.5;endArrow=blockThin;endFill=1;" edge="1" parent="1" source="p5-3" target="p5-4"/>
+                <mxCell id="conn-1-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333;strokeWidth=2.5;endArrow=blockThin;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=0;" edge="1" parent="1" source="p1-4" target="p2-1"/>
+                <mxCell id="conn-2-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333;strokeWidth=2.5;endArrow=blockThin;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=0;" edge="1" parent="1" source="p2-4" target="p3-1"/>
+                <mxCell id="conn-3-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333;strokeWidth=2.5;endArrow=blockThin;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=0;" edge="1" parent="1" source="p3-5" target="p4-1"/>
+                <mxCell id="conn-4-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333;strokeWidth=2.5;endArrow=blockThin;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=0;" edge="1" parent="1" source="p4-4" target="p5-1"/>
+                <mxCell id="sw1" value="&lt;span style=&#39;font-size:9px; color:#999;&#39;&gt;DJI Pilot 2 / GS Pro&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="110" y="410" width="140" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="sw2" value="&lt;span style=&#39;font-size:9px; color:#999;&#39;&gt;DJI Terra / EZSurv&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="435" y="410" width="130" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="sw3" value="&lt;span style=&#39;font-size:9px; color:#999;&#39;&gt;Pix4Dmapper&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="775" y="470" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="sw4" value="&lt;span style=&#39;font-size:9px; color:#999;&#39;&gt;Global Mapper&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="1095" y="410" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="sw5" value="&lt;span style=&#39;font-size:9px; color:#999;&#39;&gt;Maptek Vulcan&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="1405" y="410" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="outputs-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a1a;strokeColor=#333;strokeWidth=1;arcSize=6;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="500" width="1540" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="outputs-title" value="&lt;b style=&#39;font-size:12px; color:#fff;&#39;&gt;PRODUCTOS FINALES&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="505" width="150" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="out-1" value="&lt;span style=&#39;font-size:10px; color:#ccc;&#39;&gt;📐 Ortomosaico&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="535" width="110" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="out-2" value="&lt;span style=&#39;font-size:10px; color:#ccc;&#39;&gt;📊 DEM / DTM&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="535" width="100" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="out-3" value="&lt;span style=&#39;font-size:10px; color:#ccc;&#39;&gt;🗺️ Curvas de Nivel&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="340" y="535" width="130" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="out-4" value="&lt;span style=&#39;font-size:10px; color:#ccc;&#39;&gt;☁️ Nube de Puntos .LAS&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="535" width="160" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="out-5" value="&lt;span style=&#39;font-size:10px; color:#ccc;&#39;&gt;📏 Triangulación .00t&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="535" width="140" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="out-6" value="&lt;span style=&#39;font-size:10px; color:#ccc;&#39;&gt;📦 Cubicaciones&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="890" y="535" width="120" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="out-7" value="&lt;span style=&#39;font-size:10px; color:#ccc;&#39;&gt;📝 Reportes QA/QC&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="1050" y="535" width="130" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="out-8" value="&lt;span style=&#39;font-size:10px; color:#ccc;&#39;&gt;🗃️ Shapefile / GeoTIFF&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="1220" y="535" width="150" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="out-9" value="&lt;span style=&#39;font-size:10px; color:#ccc;&#39;&gt;🖼️ Secciones / Perfiles&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="1400" y="535" width="150" height="25" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

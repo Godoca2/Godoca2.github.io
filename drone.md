@@ -146,17 +146,113 @@ description: "Planificación de vuelo, fotogrametría, avances topográficos y s
   <section class="section">
     <div class="section-header">
       <h2>Pipeline Fotogramétrico</h2>
-      <p>Flujo de trabajo completo: desde la captura aérea hasta los productos finales</p>
+      <p>Flujo de trabajo end-to-end: desde la planificación de vuelo hasta los productos topográficos finales</p>
     </div>
 
-    <div class="drone-diagram">
-      <img src="/assets/images/drone/Diagrama_Proceso_Fotogrametria%20con%20Px4D.png" alt="Diagrama de Proceso Fotogrametría con Pix4D">
-      <p class="drone-diagram-caption">Diagrama de proceso — Fotogrametría con Pix4D</p>
-    </div>
+    <div class="pipeline">
+      <div class="pipeline-phases">
 
-    <div class="drone-diagram" style="margin-top: var(--space-2xl);">
-      <img src="/assets/images/drone/Etapas%20del%20Proceso%20-%20Ajuste%20de%20Posici%C3%B3n%20con%20sistema%20PPK.png" alt="Etapas del Proceso - Ajuste de Posición con sistema PPK">
-      <p class="drone-diagram-caption">Etapas del proceso — Ajuste de posición con sistema PPK</p>
+        <!-- Fase 1 -->
+        <div class="pipeline-phase">
+          <div class="pipeline-phase-header">
+            <span class="pipeline-phase-num">01</span>
+            <h3>Planificación de Vuelo</h3>
+            <span class="pipeline-sw">DJI Pilot 2 / GS Pro</span>
+          </div>
+          <div class="pipeline-steps">
+            <div class="pipeline-step">Reconocimiento del área y restricciones</div>
+            <div class="pipeline-step">Diseño de plan de vuelo — GSD, overlap 80/70, altura</div>
+            <div class="pipeline-step">Materialización de GCPs (GNSS)</div>
+            <div class="pipeline-step pipeline-step-output">Ejecución del vuelo — DJI Matrice 350/400 RTK</div>
+          </div>
+        </div>
+
+        <div class="pipeline-connector"><i class="fa-solid fa-arrow-right"></i></div>
+
+        <!-- Fase 2 -->
+        <div class="pipeline-phase">
+          <div class="pipeline-phase-header">
+            <span class="pipeline-phase-num">02</span>
+            <h3>Ajuste PPK</h3>
+            <span class="pipeline-sw">DJI Terra / EZSurv</span>
+          </div>
+          <div class="pipeline-steps">
+            <div class="pipeline-step">Descarga de datos HCN + base GNSS</div>
+            <div class="pipeline-step">Conversión HCN → RINEX</div>
+            <div class="pipeline-step">Post-proceso PPK diferencial</div>
+            <div class="pipeline-step pipeline-step-output">Fichero con posiciones corregidas (cm)</div>
+          </div>
+        </div>
+
+        <div class="pipeline-connector"><i class="fa-solid fa-arrow-right"></i></div>
+
+        <!-- Fase 3 -->
+        <div class="pipeline-phase pipeline-phase-accent">
+          <div class="pipeline-phase-header">
+            <span class="pipeline-phase-num">03</span>
+            <h3>Fotogrametría</h3>
+            <span class="pipeline-sw">Pix4Dmapper</span>
+          </div>
+          <div class="pipeline-steps">
+            <div class="pipeline-step">Calibración de cámaras y corrección de posición</div>
+            <div class="pipeline-step">Generación de nube de puntos densa</div>
+            <div class="pipeline-step">Integración de GCPs y optimización</div>
+            <div class="pipeline-step">QA/QC — Limpieza de nube de puntos</div>
+            <div class="pipeline-step pipeline-step-output">Ortomosaico + DSM base</div>
+          </div>
+        </div>
+
+        <div class="pipeline-connector"><i class="fa-solid fa-arrow-right"></i></div>
+
+        <!-- Fase 4 -->
+        <div class="pipeline-phase">
+          <div class="pipeline-phase-header">
+            <span class="pipeline-phase-num">04</span>
+            <h3>Productos GIS</h3>
+            <span class="pipeline-sw">Global Mapper</span>
+          </div>
+          <div class="pipeline-steps">
+            <div class="pipeline-step">Nube de puntos .LAS clasificada</div>
+            <div class="pipeline-step">DEM / DTM</div>
+            <div class="pipeline-step">Curvas de nivel</div>
+            <div class="pipeline-step pipeline-step-output">Exportación GIS — SHP, GeoTIFF, KML</div>
+          </div>
+        </div>
+
+        <div class="pipeline-connector"><i class="fa-solid fa-arrow-right"></i></div>
+
+        <!-- Fase 5 -->
+        <div class="pipeline-phase">
+          <div class="pipeline-phase-header">
+            <span class="pipeline-phase-num">05</span>
+            <h3>Integración Minera</h3>
+            <span class="pipeline-sw">Maptek Vulcan</span>
+          </div>
+          <div class="pipeline-steps">
+            <div class="pipeline-step">Triangulación .00t</div>
+            <div class="pipeline-step">Ortomosaico integrado sobre modelo 3D</div>
+            <div class="pipeline-step">Cubicaciones — corte y relleno</div>
+            <div class="pipeline-step pipeline-step-output">Entrega final — Reportes, planos, QA/QC</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Productos finales -->
+      <div class="pipeline-outputs">
+        <span class="pipeline-outputs-label">Productos Finales</span>
+        <div class="pipeline-output-tags">
+          <span>Ortomosaico</span>
+          <span>DEM / DTM</span>
+          <span>Curvas de Nivel</span>
+          <span>Nube de Puntos .LAS</span>
+          <span>Triangulación .00t</span>
+          <span>Cubicaciones</span>
+          <span>Reportes QA/QC</span>
+          <span>Shapefile / GeoTIFF</span>
+          <span>Secciones y Perfiles</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -291,7 +387,6 @@ description: "Planificación de vuelo, fotogrametría, avances topográficos y s
           <source src="/assets/images/drone/Videos/Esperanza_F5.mp4" type="video/mp4">
           Tu navegador no soporta video HTML5.
         </video>
-        <h3>Esperanza — Fase 5</h3>
         <p>Vuelo fotogramétrico para control de avance topográfico.</p>
       </div>
       <div class="drone-video-card">
@@ -299,7 +394,6 @@ description: "Planificación de vuelo, fotogrametría, avances topográficos y s
           <source src="/assets/images/drone/Videos/Esperanza_Sur_F1.mp4" type="video/mp4">
           Tu navegador no soporta video HTML5.
         </video>
-        <h3>Esperanza Sur — Fase 1</h3>
         <p>Cobertura aérea del sector sur para generación de ortomosaico.</p>
       </div>
       <div class="drone-video-card">
@@ -307,7 +401,6 @@ description: "Planificación de vuelo, fotogrametría, avances topográficos y s
           <source src="/assets/images/drone/Videos/Oxido_Encuentro_F3.mp4" type="video/mp4">
           Tu navegador no soporta video HTML5.
         </video>
-        <h3>Óxido Encuentro — Fase 3</h3>
         <p>Levantamiento para cubicación y seguimiento de movimientos de tierra.</p>
       </div>
       <div class="drone-video-card">
@@ -315,7 +408,6 @@ description: "Planificación de vuelo, fotogrametría, avances topográficos y s
           <source src="/assets/images/drone/Videos/Tesoro_Central_F9_F10.mp4" type="video/mp4">
           Tu navegador no soporta video HTML5.
         </video>
-        <h3>Tesoro Central — Fases 9 y 10</h3>
         <p>Avance topográfico multifase para control de botaderos.</p>
       </div>
     </div>
