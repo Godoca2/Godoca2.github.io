@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+<article class="blog-post">
+  <header class="blog-post-header">
+    <div class="container-narrow">
+      <div class="blog-post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %b %Y" }}</time>
+        {% if page.category %}
+        <span class="blog-post-category">{{ page.category }}</span>
+        {% endif %}
+        {% if page.reading_time %}
+        <span class="blog-post-reading">{{ page.reading_time }} min lectura</span>
+        {% endif %}
+      </div>
+      <h1>{{ page.title }}</h1>
+      {% if page.excerpt_text %}
+      <p class="lead">{{ page.excerpt_text }}</p>
+      {% endif %}
+      {% if page.tags %}
+      <div class="card-tags" style="margin-top: var(--space-md);">
+        {% for t in page.tags %}
+        <span class="tag-pill">{{ t }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </header>
+
+  {% if page.cover %}
+  <div class="blog-post-cover">
+    <div class="container-narrow">
+      <img src="{{ page.cover }}" alt="{{ page.title }}">
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="blog-post-body container-narrow">
+    {{ content }}
+  </div>
+
+  <footer class="blog-post-footer container-narrow">
+    <a class="btn btn-ghost" href="/blog/">← Volver al blog</a>
+  </footer>
+</article>

@@ -2,8 +2,10 @@
   url: /solutions/
 - title: Casos de Estudio
   url: /case-studies/
-- title: Arquitectura
-  url: /architecture/
+- title: Drone
+  url: /drone/
+- title: Blog
+  url: /blog/
 - title: Sobre mí
   url: /about/
 - title: Contacto

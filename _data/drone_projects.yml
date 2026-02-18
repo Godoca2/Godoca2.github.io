@@ -1,0 +1,19 @@
+- title: "Avance Topográfico — Faena Minera"
+  description: "Vuelo fotogramétrico para control de avance en faena minera. Generación de ortomosaico, DEM y cálculo de cubicaciones para seguimiento de movimientos de tierra."
+  image: /assets/images/drone/minera-avance.jpg
+  tags: [Minería, Fotogrametría, Topografía, DEM]
+
+- title: "Ortomosaico — Levantamiento de Terreno"
+  description: "Captura aérea de alta resolución para generación de ortomosaico georreferenciado. Planificación de vuelo con overlap 80/70 y GSD de 2.5 cm/px."
+  image: /assets/images/drone/ortomosaico-terreno.jpg
+  tags: [Ortomosaico, Planificación de Vuelo, GIS]
+
+- title: "Fotografía Aérea — Documentación de Proyecto"
+  description: "Registro fotográfico aéreo para documentación de avance de obra e inspección visual de infraestructura."
+  image: /assets/images/drone/fotografia-aerea.jpg
+  tags: [Fotografía Aérea, Inspección, Documentación]
+
+- title: "Modelo Digital de Elevación — Cubicaciones"
+  description: "Generación de DEM y cálculo de volúmenes para cubicación de stock piles y seguimiento de movimientos de tierra en operaciones mineras."
+  image: /assets/images/drone/dem-cubicacion.jpg
+  tags: [DEM, Cubicaciones, Minería, Topografía]

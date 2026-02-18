@@ -957,6 +957,264 @@ td { color: var(--text-secondary); }
   a { color: #000; text-decoration: underline; }
 }
 
+/* ── Drone Section ── */
+.drone-intro {
+  max-width: 720px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.drone-service-card {
+  padding: var(--space-xl) var(--space-lg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.drone-service-card:hover {
+  border-color: var(--text-tertiary);
+  transform: translateY(-2px);
+}
+
+.drone-service-icon {
+  display: block;
+  font-size: 1.8rem;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-md);
+}
+
+.drone-service-card h3 {
+  font-size: 0.95rem;
+  margin: 0 0 var(--space-sm);
+}
+
+.drone-service-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.drone-project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.drone-project-card .card-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-base);
+}
+
+.drone-project-card:hover .card-image {
+  transform: scale(1.02);
+}
+
+.drone-project-card .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.drone-project-card h3 {
+  font-size: 1rem;
+  margin: 0 0 var(--space-xs);
+}
+
+.drone-project-card p {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── Blog Section ── */
+.blog-featured {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  padding-bottom: var(--space-3xl);
+  border-bottom: 1px solid var(--border);
+}
+
+.blog-featured-image {
+  aspect-ratio: 16 / 10;
+}
+
+.blog-featured-content h3 {
+  font-size: 1.3rem;
+  margin: var(--space-sm) 0 var(--space-md);
+}
+
+.blog-featured-content h3 a {
+  color: var(--text-primary);
+}
+
+.blog-featured-content h3 a:hover {
+  color: var(--accent-color);
+}
+
+.blog-featured-content p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card .card-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-card .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-card h3 {
+  font-size: 1.05rem;
+  margin: var(--space-xs) 0 var(--space-sm);
+}
+
+.blog-card h3 a {
+  color: var(--text-primary);
+}
+
+.blog-card h3 a:hover {
+  color: var(--accent-color);
+}
+
+.blog-card p {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.blog-post-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  font-weight: 600;
+}
+
+.blog-post-category {
+  color: var(--accent-color);
+}
+
+.blog-post-reading {
+  color: var(--text-tertiary);
+}
+
+/* Blog Post Page */
+.blog-post-header {
+  padding: var(--space-3xl) 0 var(--space-xl);
+}
+
+.blog-post-header h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin: var(--space-md) 0 var(--space-sm);
+}
+
+.blog-post-header .lead {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.blog-post-cover {
+  margin-bottom: var(--space-2xl);
+}
+
+.blog-post-cover img {
+  width: 100%;
+  border-radius: var(--radius-md);
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.blog-post-body {
+  padding-bottom: var(--space-3xl);
+}
+
+.blog-post-body h2 {
+  font-size: 1.25rem;
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--border);
+}
+
+.blog-post-body h2:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.blog-post-footer {
+  padding: var(--space-2xl) 0 var(--space-3xl);
+  border-top: 1px solid var(--border);
+}
+
+/* Blog Empty State */
+.blog-empty {
+  text-align: center;
+  padding: var(--space-4xl) var(--space-xl);
+  color: var(--text-tertiary);
+}
+
+.blog-empty i {
+  font-size: 3rem;
+  opacity: 0.3;
+  margin-bottom: var(--space-lg);
+  display: block;
+}
+
+.blog-empty h3 {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.blog-empty p {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ── Responsive: Drone & Blog ── */
+@media (max-width: 768px) {
+  .blog-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .drone-service-card {
+    padding: var(--space-lg);
+  }
+}
+
 /* ── Utilities ── */
 .text-center { text-align: center; }
 .text-sm { font-size: 0.875rem; }

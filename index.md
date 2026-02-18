@@ -86,6 +86,66 @@ title: César Godoy Delaigue — Data Systems Engineer
     </div>
   </section>
 
+  <!-- Drone -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Vuelos & Equipo Drone</h2>
+      <p>Fotogrametría, topografía aérea y cartografía con drones</p>
+    </div>
+
+    <div class="grid grid-3">
+      {% for proj in site.data.drone_projects limit:3 %}
+      <div class="drone-project-card">
+        <div class="card-image">
+          {% if proj.image %}
+          <img src="{{ proj.image }}" alt="{{ proj.title }}">
+          {% else %}
+          <span class="card-icon-placeholder"><i class="fa-solid fa-helicopter"></i></span>
+          {% endif %}
+        </div>
+        <h3>{{ proj.title }}</h3>
+        <p>{{ proj.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <p class="text-center" style="margin-top: var(--space-2xl);">
+      <a class="btn btn-ghost" href="/drone/">Ver portafolio drone →</a>
+    </p>
+  </section>
+
+  <!-- Blog -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Blog</h2>
+      <p>Artículos sobre Data Science, GIS y tecnología</p>
+    </div>
+
+    {% assign latest_posts = site.posts | slice: 0, 2 %}
+    {% if latest_posts.size > 0 %}
+    <div class="grid grid-2">
+      {% for post in latest_posts %}
+      <div class="blog-card">
+        <div class="blog-post-meta">
+          <span class="blog-post-category">{{ post.category }}</span>
+          <span>{{ post.date | date: "%d %b %Y" }}</span>
+        </div>
+        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+        <p>{{ post.excerpt_text | default: post.excerpt | strip_html | truncate: 120 }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="text-center" style="margin-top: var(--space-2xl);">
+      <a class="btn btn-ghost" href="/blog/">Ver todos los artículos →</a>
+    </p>
+    {% else %}
+    <div class="blog-empty">
+      <h3>Próximamente</h3>
+      <p>Estoy preparando contenido técnico. Vuelve pronto.</p>
+    </div>
+    {% endif %}
+  </section>
+
   <!-- Skills -->
   <section class="section">
     <div class="section-header">
