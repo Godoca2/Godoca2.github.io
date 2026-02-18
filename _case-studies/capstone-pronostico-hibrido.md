@@ -10,9 +10,14 @@ role: Data Scientist / Investigador Principal
 duration: "10 meses"
 stack: Python · TensorFlow · Kriging · ERA5 · CHIRPS · MLflow
 tags: [Python, TensorFlow, Deep Learning, Geostatistics, Kriging, Climate]
-cover: /assets/images/covers/capstone-pronostico.jpg
+cover: /assets/images/covers/capstone-pronostico.png
 repo: https://github.com/Godoca2/capstone-project-pronostico-hibrido
 ---
+
+<figure class="case-study-cover">
+  <img src="/assets/images/covers/capstone-pronostico.png" alt="Precipitación promedio anual 2020 — ERA5 Reanalysis, Chile continental">
+  <figcaption>Precipitación promedio anual 2020 — ERA5 Reanalysis (0.25° grid, Chile continental)</figcaption>
+</figure>
 
 ## Problema
 

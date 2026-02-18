@@ -620,6 +620,28 @@ hr {
   padding-top: 0;
 }
 
+.case-study-cover {
+  margin: 0 0 var(--space-2xl);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+.case-study-cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.case-study-cover figcaption {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  text-align: center;
+  padding: var(--space-sm) var(--space-md);
+  border-top: 1px solid var(--border);
+}
+
 /* ── Solution Layout ── */
 .solution-hero {
   max-width: var(--max-width);
