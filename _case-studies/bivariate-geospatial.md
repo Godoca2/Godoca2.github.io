@@ -10,8 +10,13 @@ role: GIS Analyst & Data Visualization
 duration: "1 mes"
 stack: Python · GeoPandas · Matplotlib
 tags: [Python, GeoPandas, Matplotlib, Cartography, Climate]
+cover: /assets/images/covers/Mapa_Bivariado.png
 repo: https://github.com/Godoca2/Bivariate_Maps
 ---
+
+<figure class="case-study-cover">
+  <img src="/assets/images/covers/Mapa_Bivariado.png" alt="Mapa Bivariado — Análisis Territorial Choapa">
+</figure>
 
 ## Problema
 

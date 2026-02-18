@@ -10,8 +10,13 @@ role: Data Scientist & Arquitecto de Solución
 duration: "3 meses"
 stack: Python · NetworkX · GeoPandas
 tags: [Python, NetworkX, Graph Theory, GIS, Hydrogeology]
+cover: /assets/images/covers/grafo_GNN.png
 repo: https://github.com/Godoca2/Proyecto-Ciencia-Redes
 ---
+
+<figure class="case-study-cover">
+  <img src="/assets/images/covers/grafo_GNN.png" alt="Grafo de red — Modelamiento de acuíferos">
+</figure>
 
 ## Problema
 

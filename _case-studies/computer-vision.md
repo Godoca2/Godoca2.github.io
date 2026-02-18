@@ -10,9 +10,13 @@ role: Data Scientist
 duration: "1 mes"
 stack: Python · Jupyter · HTML · Computer Vision
 tags: [Python, Computer Vision, Deep Learning, Image Processing, HTML]
-cover: /assets/images/covers/computer-vision.jpg
+cover: /assets/images/covers/Computer_Vision.png
 repo: https://github.com/Godoca2/Computer_Vision
 ---
+
+<figure class="case-study-cover">
+  <img src="/assets/images/covers/Computer_Vision.png" alt="Computer Vision — Visión por Computador">
+</figure>
 
 ## Problema
 

@@ -10,7 +10,6 @@ role: Data Engineer
 duration: "1 mes"
 stack: Python · Selenium · Google APIs · SQLite · Pandas
 tags: [Python, Selenium, Web Scraping, Google APIs, SQLite, Geocoding]
-cover: /assets/images/covers/web-scraping.jpg
 repo: https://github.com/Godoca2/Web_Scraping
 ---
 
