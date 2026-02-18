@@ -621,7 +621,8 @@ hr {
 }
 
 .case-study-cover {
-  margin: 0 0 var(--space-2xl);
+  margin: 0 auto var(--space-2xl);
+  max-width: 520px;
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--border);
