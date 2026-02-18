@@ -103,8 +103,13 @@ title: César Godoy Delaigue — Data Systems Engineer
           <span class="card-icon-placeholder"><i class="fa-solid fa-helicopter"></i></span>
           {% endif %}
         </div>
+        <div class="card-tags">
+          {% for t in proj.tags limit:3 %}
+          <span class="tag">{{ t }}</span>
+          {% endfor %}
+        </div>
         <h3>{{ proj.title }}</h3>
-        <p>{{ proj.description }}</p>
+        <p>{{ proj.description | truncate: 100 }}</p>
       </div>
       {% endfor %}
     </div>

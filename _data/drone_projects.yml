@@ -1,19 +1,30 @@
-- title: "Avance Topográfico — Faena Minera"
-  description: "Vuelo fotogramétrico para control de avance en faena minera. Generación de ortomosaico, DEM y cálculo de cubicaciones para seguimiento de movimientos de tierra."
-  image: /assets/images/drone/minera-avance.jpg
-  tags: [Minería, Fotogrametría, Topografía, DEM]
+# Proyectos drone — imágenes reales del portfolio
+- title: "Ortomosaico Integrado — Maptek Vulcan"
+  description: "Ortomosaico de alta resolución generado desde vuelo fotogramétrico e integrado en software minero Vulcan para planificación y control de operaciones."
+  image: /assets/images/drone/4.%20Vulcan/2.%20Ortomosaico.png
+  tags: [Ortomosaico, Vulcan, Minería, Fotogrametría]
 
-- title: "Ortomosaico — Levantamiento de Terreno"
-  description: "Captura aérea de alta resolución para generación de ortomosaico georreferenciado. Planificación de vuelo con overlap 80/70 y GSD de 2.5 cm/px."
-  image: /assets/images/drone/ortomosaico-terreno.jpg
-  tags: [Ortomosaico, Planificación de Vuelo, GIS]
+- title: "Modelo Digital de Elevación — Global Mapper"
+  description: "DEM generado a partir de nube de puntos densa para cálculo de volúmenes, cubicaciones y análisis topográfico en operaciones mineras."
+  image: /assets/images/drone/3.%20Global_Mapper/2.%20Modelo%20Digital%20de%20Elavaci%C3%B3n.png
+  tags: [DEM, Global Mapper, Topografía, GIS]
 
-- title: "Fotografía Aérea — Documentación de Proyecto"
-  description: "Registro fotográfico aéreo para documentación de avance de obra e inspección visual de infraestructura."
-  image: /assets/images/drone/fotografia-aerea.jpg
-  tags: [Fotografía Aérea, Inspección, Documentación]
+- title: "Nube de Puntos Densa — Pix4D"
+  description: "Nube de puntos preliminar procesada en Pix4D a partir de captura fotogramétrica aérea con corrección de posiciones PPK."
+  image: /assets/images/drone/2.%20Pix4D/2.%20Nube_de_Puntos_preliminar.png
+  tags: [Nube de Puntos, Pix4D, Fotogrametría, PPK]
 
-- title: "Modelo Digital de Elevación — Cubicaciones"
-  description: "Generación de DEM y cálculo de volúmenes para cubicación de stock piles y seguimiento de movimientos de tierra en operaciones mineras."
-  image: /assets/images/drone/dem-cubicacion.jpg
-  tags: [DEM, Cubicaciones, Minería, Topografía]
+- title: "Curvas de Nivel — Global Mapper"
+  description: "Curvas de nivel generadas desde DEM para integración en planos topográficos y software de planificación minera."
+  image: /assets/images/drone/3.%20Global_Mapper/3.%20Curvas%20de%20Nivel.png
+  tags: [Curvas de Nivel, Topografía, Global Mapper, GIS]
+
+- title: "Triangulación Minera — Vulcan"
+  description: "Superficie triangulada en formato .00t para integración con modelo geológico y cálculo de cubicaciones en Maptek Vulcan."
+  image: /assets/images/drone/4.%20Vulcan/1.%20Triangulaci%C3%B3n%20en%20formato%2000t.png
+  tags: [Triangulación, Vulcan, Minería, Cubicaciones]
+
+- title: "QA/QC — Validación en Sección"
+  description: "Control de calidad mediante secciones transversales de nube de puntos versus superficie triangulada para verificación de precisión del modelo."
+  image: /assets/images/drone/4.%20Vulcan/3.%20QAQC%20Nube%20de%20Puntos%20en%20secci%C3%B3n.png
+  tags: [QA/QC, Vulcan, Nube de Puntos, Validación]
