@@ -17,8 +17,6 @@ title: César Godoy Delaigue — Data Systems Engineer
 
 <div class="container-narrow">
 
-  <div class="hero-divider"></div>
-
   <!-- Solutions -->
   <section class="section">
     <div class="section-header">
