@@ -2,12 +2,12 @@
 layout: page
 title: Sobre mí
 permalink: /about/
-description: "Arquitecto de Sistemas de Datos con más de 12 años diseñando plataformas de datos, soluciones GIS y sistemas de inteligencia artificial."
+description: "Ingeniero de Datos con más de 12 años diseñando plataformas de datos, soluciones GIS y Sistemas."
 ---
 
 ## Perfil Profesional
 
-Soy **arquitecto de sistemas de datos** con más de 12 años de experiencia diseñando e implementando plataformas de datos, soluciones de inteligencia geoespacial y sistemas de IA/ML para organizaciones del sector hídrico, ambiental y geocientífico.
+Soy **Ingeniero de Datos** con más de 12 años de experiencia diseñando e implementando plataformas de datos, soluciones de inteligencia geoespacial y sistemas de IA/ML para organizaciones del sector geocientífico.
 
 Mi enfoque es construir **infraestructura de datos como sistemas**, no como colecciones de herramientas. Cada solución que diseño tiene un modelo de datos gobernado, pipelines automatizados con QA/QC, y una capa de presentación que transforma datos en decisiones.
 
@@ -21,8 +21,8 @@ Mi enfoque es construir **infraestructura de datos como sistemas**, no como cole
 
 ## Formación
 
-- **Candidato a Máster en Data Science** — Universidad del Desarrollo (UDD)
-- Formación continua en Cloud Architecture (GCP), MLOps y geoinformática avanzada
+- **Máster en Data Science** — Universidad del Desarrollo (UDD)
+
 
 ## Competencias Técnicas
 

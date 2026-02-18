@@ -14,9 +14,10 @@
     - PostGIS
     - Google Earth Engine
     - Spatial Analysis
+    - Photogrammetry
     - Remote Sensing
 
-- category: AI / ML
+- category: Data Science
   items:
     - Scikit-learn
     - MLflow / MLOps
@@ -40,7 +41,7 @@
     - Tableau
     - Looker Studio
     - Custom Dashboards
-    - Mapas Temáticos
+    - Mapas Temáticos (Leaflet.js)
     - Reportes Automatizados
 
 - category: Languages & Tools
@@ -48,6 +49,6 @@
     - Python
     - R
     - SQL
-    - Node.js
+    - JavaScript (D3.js)
     - Git
     - Linux / Shell

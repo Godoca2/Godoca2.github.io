@@ -1,6 +1,6 @@
 # César Godoy Delaigue — Technical Profile
 
-**Data Systems Architect** · Geospatial Intelligence · AI/ML Engineering
+**Data Systems Engineer** · GIS · Data Scientist
 
 Sitio profesional estático construido con Jekyll + GitHub Pages.
 

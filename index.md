@@ -1,11 +1,11 @@
 ---
 layout: default
-title: César Godoy Delaigue — Data Systems Architect
+title: César Godoy Delaigue — Data Systems Engineer
 ---
 
 <section class="hero">
   <h1 class="hero-name">César Godoy Delaigue</h1>
-  <p class="hero-subtitle">Data Systems Architect</p>
+  <p class="hero-subtitle">Data Systems Engineer</p>
   <p class="hero-bio">Diseño e implemento plataformas de datos, pipelines de inteligencia artificial y soluciones de inteligencia geoespacial para organizaciones que necesitan tomar decisiones basadas en datos reales. Mi trabajo abarca data engineering, geospatial intelligence y AI/ML.</p>
   <div class="hero-links">
     <a href="{{ site.github }}" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
