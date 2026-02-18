@@ -21,7 +21,8 @@ Mi enfoque es construir **infraestructura de datos como sistemas**, no como cole
 
 ## Formación
 
-- **Máster en Data Science** — Universidad del Desarrollo (UDD)
+- **Magíster en Data Science** — Universidad del Desarrollo, UDD (2025 – 2026)
+- **Ingeniero de Datos**
 
 
 ## Competencias Técnicas
