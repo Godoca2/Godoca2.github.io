@@ -46,4 +46,39 @@
       }
     });
   });
+
+  // ── Cursor Glow Effect (DagsHub-style) ──
+  var glow = document.querySelector('.cursor-glow');
+  if (glow && window.matchMedia('(pointer: fine)').matches) {
+    var mx = 0, my = 0, gx = 0, gy = 0;
+    var hue = 270; // start purple
+
+    document.addEventListener('mousemove', function (e) {
+      mx = e.clientX;
+      my = e.clientY;
+      if (!glow.classList.contains('is-active')) {
+        glow.classList.add('is-active');
+      }
+    });
+
+    document.addEventListener('mouseleave', function () {
+      glow.classList.remove('is-active');
+    });
+
+    (function animate() {
+      // Smooth interpolation — glow follows cursor with easing
+      gx += (mx - gx) * 0.08;
+      gy += (my - gy) * 0.08;
+      glow.style.left = gx + 'px';
+      glow.style.top = gy + 'px';
+
+      // Slow color shift
+      hue = (hue + 0.15) % 360;
+      var c1 = 'hsla(' + hue + ', 70%, 65%, 0.15)';
+      var c2 = 'hsla(' + ((hue + 60) % 360) + ', 60%, 55%, 0.08)';
+      glow.style.background = 'radial-gradient(circle, ' + c1 + ' 0%, ' + c2 + ' 40%, transparent 70%)';
+
+      requestAnimationFrame(animate);
+    })();
+  }
 })();
