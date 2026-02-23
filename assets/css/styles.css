@@ -1554,35 +1554,24 @@ td { color: var(--text-secondary); }
   }
 }
 
-/* ── Cursor Glow Effect ── */
-.cursor-glow {
+/* ── Cursor Liquid Canvas ── */
+#cursor-canvas {
   position: fixed;
   top: 0;
   left: 0;
-  width: 600px;
-  height: 600px;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
   z-index: 9999;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, rgba(59, 130, 246, 0.08) 40%, transparent 70%);
-  filter: blur(60px);
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
   mix-blend-mode: screen;
-  will-change: top, left, opacity;
-}
-
-.cursor-glow.is-active {
-  opacity: 1;
 }
 
 @media (max-width: 768px) {
-  .cursor-glow { display: none; }
+  #cursor-canvas { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cursor-glow { display: none; }
+  #cursor-canvas { display: none; }
 }
 
 /* ── Utilities ── */
