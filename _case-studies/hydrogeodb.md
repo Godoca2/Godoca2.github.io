@@ -19,7 +19,7 @@ La gestión de datos hidrogeológicos y de perforación en proyectos mineros y a
 
 ## Arquitectura
 
-Diseñé una plataforma full-stack con arquitectura de 3 capas:
+Plataforma full-stack con arquitectura de 3 capas:
 
 **Base de datos relacional (PostgreSQL 15+ / PostGIS)**: Modelo normalizado con tablas para collar, survey, litología, alteración, mineralización, muestras y ensayos. PostGIS habilitado para consultas espaciales (ST_Distance, ST_Within, ST_Buffer). Constraints e índices para integridad referencial y rendimiento.
 
