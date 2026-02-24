@@ -47,7 +47,7 @@
     });
   });
 
-  // ── Liquid Cursor Effect (DagsHub-style) ──
+  // ── Aurora Wisps Effect (DagsHub-style) ──
   var canvas = document.getElementById('cursor-canvas');
   if (canvas && window.matchMedia('(pointer: fine)').matches &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -62,13 +62,10 @@
     resize();
     window.addEventListener('resize', resize);
 
-    var mx = -9999, my = -9999;
-    var prevMx = mx, prevMy = my;
-    var velocity = 0;
+    var mx = window.innerWidth / 2, my = window.innerHeight / 2;
     var onPage = false;
 
     document.addEventListener('mousemove', function (e) {
-      prevMx = mx; prevMy = my;
       mx = e.clientX;
       my = e.clientY;
       onPage = true;
@@ -77,217 +74,123 @@
       onPage = false;
     });
 
-    // === Ribbon trail – stores recent positions ===
-    var RIBBON_LEN = 80;
-    var ribbon = []; // {x, y, dx, dy, age}
+    // ── Wisp (flowing aurora ribbon) ──
+    // Each wisp is a chain of nodes that follow the cursor at different speeds
+    var NUM_WISPS = 5;
+    var NODES_PER_WISP = 25;
+    var wisps = [];
 
-    // === Floating blobs – large swirling masses ===
-    var BLOB_MAX = 35;
-    var blobs = [];
-
-    // DagsHub palette: deep reds, hot pinks, magentas, warm oranges
-    var palette = [
-      [350, 90, 55],  // crimson red
-      [0,   85, 50],  // pure red
-      [15,  90, 55],  // red-orange
-      [330, 80, 50],  // hot pink
-      [345, 85, 45],  // deep rose
-      [310, 75, 50],  // magenta
-      [20,  95, 58],  // orange
-      [340, 90, 48],  // ruby
+    // DagsHub palette: green → teal → cyan → yellow-green (aurora colors)
+    var wispConfigs = [
+      { hue: 155, sat: 80, light: 55, width: 180, speed: 0.020, offsetX: 0,   offsetY: 0,   alpha: 0.07 },
+      { hue: 130, sat: 75, light: 50, width: 140, speed: 0.013, offsetX: 80,  offsetY: -60, alpha: 0.06 },
+      { hue: 175, sat: 85, light: 50, width: 160, speed: 0.016, offsetX: -70, offsetY: 40,  alpha: 0.055 },
+      { hue: 60,  sat: 70, light: 55, width: 120, speed: 0.010, offsetX: 50,  offsetY: 80,  alpha: 0.045 },
+      { hue: 190, sat: 80, light: 45, width: 100, speed: 0.008, offsetX: -90, offsetY: -40, alpha: 0.04  },
     ];
-    var colorIdx = 0;
-    var colorT = 0;
 
-    function lerpHSL(a, b, t) {
-      var dh = b[0] - a[0];
-      if (dh > 180) dh -= 360;
-      if (dh < -180) dh += 360;
-      return [
-        (a[0] + dh * t + 360) % 360,
-        a[1] + (b[1] - a[1]) * t,
-        a[2] + (b[2] - a[2]) * t
-      ];
-    }
-
-    function getColor(offset) {
-      var idx = (colorIdx + (offset || 0)) % palette.length;
-      var next = (idx + 1) % palette.length;
-      return lerpHSL(palette[idx], palette[next], colorT);
+    for (var w = 0; w < NUM_WISPS; w++) {
+      var nodes = [];
+      for (var n = 0; n < NODES_PER_WISP; n++) {
+        nodes.push({ x: mx, y: my });
+      }
+      wisps.push(nodes);
     }
 
     var time = 0;
-    var frameCount = 0;
 
     (function animate() {
       var W = window.innerWidth, H = window.innerHeight;
+      ctx.clearRect(0, 0, W, H);
 
-      // Soft fade instead of full clear – this creates the SMEAR/TRAIL effect
-      ctx.globalCompositeOperation = 'source-over';
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
-      ctx.fillRect(0, 0, W, H);
+      time += 0.008;
 
-      // Velocity
-      var dx = mx - prevMx;
-      var dy = my - prevMy;
-      var speed = Math.sqrt(dx * dx + dy * dy);
-      velocity += (speed - velocity) * 0.2;
-      if (speed < 0.5) velocity *= 0.94;
+      // Update each wisp
+      for (var w = 0; w < NUM_WISPS; w++) {
+        var cfg = wispConfigs[w];
+        var nodes = wisps[w];
 
-      var intensity = Math.min(velocity / 30, 1);
-      intensity = intensity * intensity;
+        // Target: cursor + unique offset that orbits slowly
+        var orbitAngle = time * (0.3 + w * 0.15) + w * 1.2;
+        var orbitRadius = 40 + w * 25;
+        var targetX = mx + cfg.offsetX + Math.sin(orbitAngle) * orbitRadius;
+        var targetY = my + cfg.offsetY + Math.cos(orbitAngle * 0.7) * orbitRadius;
 
-      // Advance color
-      colorT += 0.004 + intensity * 0.015;
-      if (colorT >= 1) { colorT -= 1; colorIdx = (colorIdx + 1) % palette.length; }
+        // Head follows target
+        var headEase = cfg.speed * 3;
+        nodes[0].x += (targetX - nodes[0].x) * headEase;
+        nodes[0].y += (targetY - nodes[0].y) * headEase;
 
-      time += 0.018;
-      frameCount++;
+        // Each subsequent node follows the previous with decreasing easing
+        for (var n = 1; n < NODES_PER_WISP; n++) {
+          var ease = cfg.speed * (1.0 - n * 0.025);
+          if (ease < 0.003) ease = 0.003;
 
-      // --- Record ribbon points ---
-      if (onPage && speed > 1) {
-        ribbon.push({ x: mx, y: my, dx: dx, dy: dy, age: 0 });
-        if (ribbon.length > RIBBON_LEN) ribbon.shift();
-      }
-      // Age ribbon
-      for (var i = ribbon.length - 1; i >= 0; i--) {
-        ribbon[i].age++;
-        if (ribbon[i].age > 120) { ribbon.splice(i, 1); }
-      }
+          // Add perpendicular wave motion for flowing feel
+          var waveAngle = time * (1.5 + w * 0.2) + n * 0.3;
+          var waveAmp = 15 + n * 3;
+          var prevDx = n > 1 ? nodes[n-1].x - nodes[n-2].x : nodes[0].x - targetX;
+          var prevDy = n > 1 ? nodes[n-1].y - nodes[n-2].y : nodes[0].y - targetY;
+          var len = Math.sqrt(prevDx * prevDx + prevDy * prevDy) || 1;
+          var perpX = -prevDy / len;
+          var perpY = prevDx / len;
 
-      // --- Spawn blobs when moving ---
-      if (onPage && intensity > 0.02 && frameCount % 2 === 0) {
-        var col = getColor(0);
-        blobs.push({
-          x: mx + (Math.random() - 0.5) * 30,
-          y: my + (Math.random() - 0.5) * 30,
-          vx: dx * (0.2 + Math.random() * 0.15),
-          vy: dy * (0.2 + Math.random() * 0.15),
-          radius: 150 + intensity * 250 + Math.random() * 80,
-          h: col[0], s: col[1], l: col[2],
-          alpha: 0.18 + intensity * 0.30,
-          life: 1.0,
-          decay: 0.004 + Math.random() * 0.004
-        });
+          var tx = nodes[n-1].x + perpX * Math.sin(waveAngle) * waveAmp;
+          var ty = nodes[n-1].y + perpY * Math.sin(waveAngle) * waveAmp;
 
-        // Extra large swirl blob periodically
-        if (frameCount % 6 === 0 && intensity > 0.15) {
-          var col2 = getColor(3);
-          blobs.push({
-            x: mx + (Math.random() - 0.5) * 80,
-            y: my + (Math.random() - 0.5) * 80,
-            vx: dx * 0.08 + (Math.random() - 0.5) * 2,
-            vy: dy * 0.08 + (Math.random() - 0.5) * 2,
-            radius: 300 + Math.random() * 200,
-            h: col2[0], s: col2[1], l: col2[2],
-            alpha: 0.12 + intensity * 0.15,
-            life: 1.0,
-            decay: 0.002 + Math.random() * 0.003
-          });
+          nodes[n].x += (tx - nodes[n].x) * ease;
+          nodes[n].y += (ty - nodes[n].y) * ease;
         }
-      }
 
-      // Cap blobs
-      while (blobs.length > BLOB_MAX) blobs.shift();
+        // ── Render wisp as gradient ribbon ──
+        if (nodes.length < 3) continue;
 
-      // === RENDER ===
-      ctx.globalCompositeOperation = 'lighter';
+        // Draw multiple layered strokes for soft glow effect
+        var layers = [
+          { widthMul: 1.0, alphaMul: 0.3 },
+          { widthMul: 0.6, alphaMul: 0.5 },
+          { widthMul: 0.25, alphaMul: 0.8 },
+          { widthMul: 0.08, alphaMul: 1.0 },
+        ];
 
-      // -- Draw ribbon (connected liquid trail) --
-      if (ribbon.length > 2) {
-        for (var w = 0; w < 3; w++) {
-          var widths = [60, 30, 8];
-          var alphas = [0.06, 0.1, 0.2];
+        for (var li = 0; li < layers.length; li++) {
+          var layer = layers[li];
           ctx.beginPath();
-          ctx.moveTo(ribbon[0].x, ribbon[0].y);
+          ctx.moveTo(nodes[0].x, nodes[0].y);
 
-          for (var i = 1; i < ribbon.length - 1; i++) {
-            var xc = (ribbon[i].x + ribbon[i + 1].x) / 2;
-            var yc = (ribbon[i].y + ribbon[i + 1].y) / 2;
-            ctx.quadraticCurveTo(ribbon[i].x, ribbon[i].y, xc, yc);
+          for (var n = 1; n < nodes.length - 1; n++) {
+            var xc = (nodes[n].x + nodes[n + 1].x) / 2;
+            var yc = (nodes[n].y + nodes[n + 1].y) / 2;
+            ctx.quadraticCurveTo(nodes[n].x, nodes[n].y, xc, yc);
           }
-          var last = ribbon[ribbon.length - 1];
+
+          var last = nodes[nodes.length - 1];
           ctx.lineTo(last.x, last.y);
 
-          var ribbonCol = getColor(w);
-          ctx.strokeStyle = 'hsla(' + ribbonCol[0] + ',' + ribbonCol[1] + '%,' + ribbonCol[2] + '%,' + alphas[w] + ')';
-          ctx.lineWidth = widths[w];
+          // Hue shifts along the wisp
+          var h1 = cfg.hue;
+          var h2 = (cfg.hue + 40) % 360;
+
+          // Create gradient along path (approximate with start→end)
+          var grad = ctx.createLinearGradient(
+            nodes[0].x, nodes[0].y,
+            last.x, last.y
+          );
+          var a = cfg.alpha * layer.alphaMul;
+          grad.addColorStop(0, 'hsla(' + h1 + ',' + cfg.sat + '%,' + cfg.light + '%,' + a + ')');
+          grad.addColorStop(0.5, 'hsla(' + ((h1 + h2) / 2) + ',' + cfg.sat + '%,' + (cfg.light + 5) + '%,' + (a * 0.8) + ')');
+          grad.addColorStop(1, 'hsla(' + h2 + ',' + cfg.sat + '%,' + cfg.light + '%,' + (a * 0.3) + ')');
+
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = cfg.width * layer.widthMul;
           ctx.lineCap = 'round';
           ctx.lineJoin = 'round';
+          ctx.globalCompositeOperation = 'lighter';
           ctx.stroke();
         }
       }
 
-      // -- Draw blobs --
-      for (var i = blobs.length - 1; i >= 0; i--) {
-        var b = blobs[i];
-        b.x += b.vx;
-        b.y += b.vy;
-        b.vx *= 0.97;
-        b.vy *= 0.97;
-        // Slight swirl rotation
-        var angle = time * 0.5 + i;
-        b.vx += Math.sin(angle) * 0.15;
-        b.vy += Math.cos(angle) * 0.12;
-
-        b.life -= b.decay;
-        if (b.life <= 0) { blobs.splice(i, 1); continue; }
-
-        var fadeOut = b.life * b.life;
-        var a = b.alpha * fadeOut;
-        var r = b.radius * (0.4 + b.life * 0.6);
-
-        // Outer glow
-        var grad = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, r);
-        grad.addColorStop(0, 'hsla(' + b.h + ',' + b.s + '%,' + b.l + '%,' + a + ')');
-        grad.addColorStop(0.25, 'hsla(' + b.h + ',' + b.s + '%,' + (b.l - 5) + '%,' + (a * 0.6) + ')');
-        grad.addColorStop(0.6, 'hsla(' + b.h + ',' + (b.s - 10) + '%,' + (b.l - 10) + '%,' + (a * 0.2) + ')');
-        grad.addColorStop(1, 'transparent');
-        ctx.fillStyle = grad;
-        ctx.beginPath();
-        ctx.arc(b.x, b.y, r, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Hot inner core
-        if (a > 0.06) {
-          var grad2 = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, r * 0.3);
-          grad2.addColorStop(0, 'hsla(' + ((b.h + 15) % 360) + ',' + (b.s + 5) + '%,' + (b.l + 15) + '%,' + (a * 0.8) + ')');
-          grad2.addColorStop(1, 'transparent');
-          ctx.fillStyle = grad2;
-          ctx.beginPath();
-          ctx.arc(b.x, b.y, r * 0.3, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
-
-      // -- Bright core at cursor when moving --
-      if (onPage && intensity > 0.04) {
-        var cc = getColor(0);
-        var coreA = intensity * 0.6;
-
-        var g1 = ctx.createRadialGradient(mx, my, 0, mx, my, 100 + intensity * 80);
-        g1.addColorStop(0, 'hsla(' + cc[0] + ',' + cc[1] + '%,' + (cc[2] + 15) + '%,' + coreA + ')');
-        g1.addColorStop(0.4, 'hsla(' + cc[0] + ',' + cc[1] + '%,' + cc[2] + '%,' + (coreA * 0.4) + ')');
-        g1.addColorStop(1, 'transparent');
-        ctx.fillStyle = g1;
-        ctx.beginPath();
-        ctx.arc(mx, my, 100 + intensity * 80, 0, Math.PI * 2);
-        ctx.fill();
-
-        // White-hot center
-        var g2 = ctx.createRadialGradient(mx, my, 0, mx, my, 25 + intensity * 20);
-        g2.addColorStop(0, 'hsla(' + ((cc[0] + 20) % 360) + ', 100%, 85%,' + (coreA * 0.9) + ')');
-        g2.addColorStop(1, 'transparent');
-        ctx.fillStyle = g2;
-        ctx.beginPath();
-        ctx.arc(mx, my, 25 + intensity * 20, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
       ctx.globalCompositeOperation = 'source-over';
-
-      prevMx = mx;
-      prevMy = my;
       requestAnimationFrame(animate);
     })();
   }
