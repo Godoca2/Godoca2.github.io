@@ -99,7 +99,7 @@
       supportLinearFiltering = gl.getExtension('OES_texture_half_float_linear');
     }
 
-    gl.clearColor(0.0, 0.0, 0.0, 1.0);
+    gl.clearColor(0.0, 0.0, 0.0, 0.0);
 
     var halfFloatTexType = isWebGL2 ? gl.HALF_FLOAT : halfFloat.HALF_FLOAT_OES;
     var formatRGBA, formatRG, formatR;
@@ -660,7 +660,7 @@
         gl.bindFramebuffer(gl.FRAMEBUFFER, target.fbo);
       }
       if (clear) {
-        gl.clearColor(0.0, 0.0, 0.0, 1.0);
+        gl.clearColor(0.0, 0.0, 0.0, 0.0);
         gl.clear(gl.COLOR_BUFFER_BIT);
       }
       gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
@@ -1065,10 +1065,6 @@
 
     if (!config.TRANSPARENT) {
       drawColor(target, normalizeColor(config.BACK_COLOR));
-    }
-
-    if (target == null && config.TRANSPARENT) {
-      drawCheckerboard(target);
     }
 
     drawDisplay(target);
