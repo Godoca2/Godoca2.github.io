@@ -1554,7 +1554,7 @@ td { color: var(--text-secondary); }
   }
 }
 
-/* ── Cursor Liquid Canvas ── */
+/* ── Fluid Canvas Animation ── */
 #cursor-canvas {
   position: fixed;
   top: 0;
@@ -1562,8 +1562,7 @@ td { color: var(--text-secondary); }
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: screen;
+  z-index: 0;
 }
 
 @media (max-width: 768px) {
