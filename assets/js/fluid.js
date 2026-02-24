@@ -30,8 +30,8 @@
     COLORFUL: false,
     COLOR_UPDATE_SPEED: 10,
     PAUSED: false,
-    BACK_COLOR: { r: 9, g: 8, b: 25 },
-    TRANSPARENT: false,
+    BACK_COLOR: { r: 0, g: 0, b: 0 },
+    TRANSPARENT: true,
     BLOOM: false,
     BLOOM_ITERATIONS: 8,
     BLOOM_RESOLUTION: 256,
@@ -1320,7 +1320,6 @@
     });
   }
 
-  // Kick off initial splats and animation
-  multipleSplats(parseInt(Math.random() * 20) + 5);
+  // Start animation loop (no initial splats to avoid explosion)
   update();
 })();

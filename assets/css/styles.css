@@ -1562,7 +1562,8 @@ td { color: var(--text-secondary); }
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 0;
+  z-index: 9999;
+  mix-blend-mode: screen;
 }
 
 @media (max-width: 768px) {
