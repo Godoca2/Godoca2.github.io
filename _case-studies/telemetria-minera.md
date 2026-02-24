@@ -2,12 +2,9 @@
 title: Telemetría Minera — Monitoreo de Flotas de Alto Tonelaje
 summary: "Sistema de telemetría para monitoreo en tiempo real de flotas de camiones mineros: volumen de carga, consumo de combustible, ciclos operacionales y mantenimiento predictivo."
 category: Plataformas de Datos
-type: Producción
 solution: data-platforms
 featured: true
 client: Sector Minero — Operaciones Mina
-role: Data Engineer / Arquitecto de Solución
-duration: "6 meses"
 stack: Python · IoT Sensors · SCADA · PostgreSQL · Grafana
 tags: [Python, IoT, Telemetry, Mining, SCADA, Time Series, Grafana]
 ---
@@ -18,7 +15,7 @@ Las operaciones mineras de gran escala dependen de flotas de camiones de alto to
 
 ## Arquitectura
 
-Diseñé un sistema de telemetría end-to-end con 4 capas:
+Sistema de telemetría end-to-end con 4 capas:
 
 **Capa de Adquisición**: Sensores embarcados en cada camión (GPS, acelerómetros, caudalímetros de combustible, sensores de carga/payload) transmitiendo datos vía red MESH/WiFi industrial hacia el servidor de despacho.
 
