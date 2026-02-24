@@ -47,7 +47,7 @@
     });
   });
 
-  // ── Liquid Cursor Effect (Canvas) ──
+  // ── Liquid Cursor Effect (DagsHub-style) ──
   var canvas = document.getElementById('cursor-canvas');
   if (canvas && window.matchMedia('(pointer: fine)').matches &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -62,101 +62,186 @@
     resize();
     window.addEventListener('resize', resize);
 
-    var mx = -500, my = -500;
-    var isActive = false;
-    var fadeAlpha = 0;
+    // Mouse state
+    var mx = -9999, my = -9999;
+    var prevMx = mx, prevMy = my;
+    var velocity = 0;
+    var onPage = false;
 
     document.addEventListener('mousemove', function (e) {
+      prevMx = mx; prevMy = my;
       mx = e.clientX;
       my = e.clientY;
-      isActive = true;
+      onPage = true;
     });
     document.addEventListener('mouseleave', function () {
-      isActive = false;
+      onPage = false;
     });
 
-    // Trail of blobs – each follows the previous one
-    var TRAIL_COUNT = 18;
-    var trail = [];
-    for (var i = 0; i < TRAIL_COUNT; i++) {
-      trail.push({ x: -500, y: -500 });
+    // History of recent cursor positions (paint trail)
+    var HISTORY_LEN = 50;
+    var history = [];
+
+    // Color palette – DagsHub-inspired greens/teals/cyans/purples
+    var palette = [
+      [140, 90, 68],  // green
+      [165, 85, 60],  // teal
+      [185, 80, 65],  // cyan
+      [200, 75, 62],  // light blue
+      [260, 70, 65],  // purple
+      [290, 65, 60],  // magenta
+      [120, 85, 55],  // lime-green
+      [175, 90, 58],  // aqua
+    ];
+    var colorIdx = 0;
+    var colorT = 0;
+
+    function lerpColor(a, b, t) {
+      // Lerp hue on shortest path
+      var dh = b[0] - a[0];
+      if (dh > 180) dh -= 360;
+      if (dh < -180) dh += 360;
+      return [
+        (a[0] + dh * t + 360) % 360,
+        a[1] + (b[1] - a[1]) * t,
+        a[2] + (b[2] - a[2]) * t
+      ];
     }
 
-    var hue = 270; // starting hue (purple)
-    var time = 0;
+    function getCurrentColor() {
+      var a = palette[colorIdx % palette.length];
+      var b = palette[(colorIdx + 1) % palette.length];
+      return lerpColor(a, b, colorT);
+    }
 
-    function drawBlob(x, y, radius, h, s, l, alpha) {
+    function drawGlow(x, y, radius, h, s, l, alpha) {
+      if (alpha < 0.002) return;
       var grad = ctx.createRadialGradient(x, y, 0, x, y, radius);
       grad.addColorStop(0, 'hsla(' + h + ',' + s + '%,' + l + '%,' + alpha + ')');
-      grad.addColorStop(0.4, 'hsla(' + h + ',' + (s - 10) + '%,' + (l - 5) + '%,' + (alpha * 0.6) + ')');
-      grad.addColorStop(1, 'hsla(' + h + ',' + s + '%,' + l + '%,0)');
+      grad.addColorStop(0.3, 'hsla(' + h + ',' + s + '%,' + (l - 5) + '%,' + (alpha * 0.5) + ')');
+      grad.addColorStop(0.7, 'hsla(' + h + ',' + (s - 15) + '%,' + (l - 10) + '%,' + (alpha * 0.15) + ')');
+      grad.addColorStop(1, 'transparent');
       ctx.fillStyle = grad;
       ctx.beginPath();
       ctx.arc(x, y, radius, 0, Math.PI * 2);
       ctx.fill();
     }
 
+    var time = 0;
+
     (function animate() {
-      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      var W = window.innerWidth, H = window.innerHeight;
+      ctx.clearRect(0, 0, W, H);
 
-      // Fade in/out
-      if (isActive && fadeAlpha < 1) fadeAlpha = Math.min(fadeAlpha + 0.04, 1);
-      if (!isActive && fadeAlpha > 0) fadeAlpha = Math.max(fadeAlpha - 0.02, 0);
+      // Calculate velocity (px/frame)
+      var dx = mx - prevMx;
+      var dy = my - prevMy;
+      var speed = Math.sqrt(dx * dx + dy * dy);
+      // Smooth velocity with decay
+      velocity += (speed - velocity) * 0.15;
+      // Decay velocity when cursor stops
+      if (speed < 0.5) velocity *= 0.92;
 
-      if (fadeAlpha > 0.001) {
-        ctx.globalAlpha = fadeAlpha;
+      // Intensity from velocity (0 = stopped, 1 = fast)
+      var intensity = Math.min(velocity / 40, 1);
+      // Ease it for smoother transitions
+      intensity = intensity * intensity * (3 - 2 * intensity); // smoothstep
 
-        // Update trail positions with different easing speeds
-        trail[0].x += (mx - trail[0].x) * 0.25;
-        trail[0].y += (my - trail[0].y) * 0.25;
-        for (var i = 1; i < TRAIL_COUNT; i++) {
-          var ease = 0.18 - (i * 0.008);
-          if (ease < 0.03) ease = 0.03;
-          trail[i].x += (trail[i - 1].x - trail[i].x) * ease;
-          trail[i].y += (trail[i - 1].y - trail[i].y) * ease;
-        }
-
-        hue = (hue + 0.4) % 360;
-        time += 0.02;
-
-        // Render trailing blobs (back to front)
-        ctx.globalCompositeOperation = 'lighter';
-
-        for (var i = TRAIL_COUNT - 1; i >= 0; i--) {
-          var t = i / TRAIL_COUNT;
-          var blobHue = (hue + i * 12) % 360;
-          var radius = 80 + (1 - t) * 120; // larger at front
-          var alpha = (1 - t * 0.6) * 0.12;
-
-          // Add organic wobble
-          var wobbleX = Math.sin(time * 2 + i * 0.8) * (8 + i * 2);
-          var wobbleY = Math.cos(time * 1.5 + i * 0.6) * (6 + i * 1.5);
-
-          drawBlob(
-            trail[i].x + wobbleX,
-            trail[i].y + wobbleY,
-            radius,
-            blobHue, 85, 65, alpha
-          );
-        }
-
-        // Bright core glow at cursor
-        drawBlob(trail[0].x, trail[0].y, 60, hue, 90, 75, 0.35);
-        drawBlob(trail[0].x, trail[0].y, 30, (hue + 30) % 360, 95, 80, 0.5);
-
-        // Secondary accent glow (offset, different hue)
-        var ax = trail[3] ? trail[3].x : trail[0].x;
-        var ay = trail[3] ? trail[3].y : trail[0].y;
-        drawBlob(
-          ax + Math.sin(time * 3) * 20,
-          ay + Math.cos(time * 2.5) * 15,
-          100, (hue + 120) % 360, 80, 60, 0.1
-        );
-
-        ctx.globalCompositeOperation = 'source-over';
-        ctx.globalAlpha = 1;
+      // Advance color cycling (speed-dependent)
+      colorT += 0.003 + intensity * 0.012;
+      if (colorT >= 1) {
+        colorT -= 1;
+        colorIdx = (colorIdx + 1) % palette.length;
       }
 
+      time += 0.016;
+
+      // Record position in history when moving
+      if (onPage && intensity > 0.01) {
+        var col = getCurrentColor();
+        history.push({
+          x: mx, y: my,
+          vx: dx * 0.3, vy: dy * 0.3,
+          radius: 180 + intensity * 220,
+          alpha: 0.22 + intensity * 0.35,
+          h: col[0], s: col[1], l: col[2],
+          life: 1.0,
+          decay: 0.012 + (1 - intensity) * 0.008
+        });
+        // Spawn extra particles when moving fast
+        if (intensity > 0.3) {
+          var col2 = lerpColor(
+            palette[(colorIdx + 2) % palette.length],
+            palette[(colorIdx + 3) % palette.length],
+            colorT
+          );
+          history.push({
+            x: mx + (Math.random() - 0.5) * 60,
+            y: my + (Math.random() - 0.5) * 60,
+            vx: dx * 0.15 + (Math.random() - 0.5) * 3,
+            vy: dy * 0.15 + (Math.random() - 0.5) * 3,
+            radius: 120 + Math.random() * 160,
+            alpha: 0.15 + intensity * 0.2,
+            h: col2[0], s: col2[1], l: col2[2],
+            life: 1.0,
+            decay: 0.015 + Math.random() * 0.01
+          });
+        }
+      }
+
+      // Cap history
+      if (history.length > HISTORY_LEN) {
+        history = history.slice(history.length - HISTORY_LEN);
+      }
+
+      // Render
+      if (history.length > 0) {
+        ctx.globalCompositeOperation = 'lighter';
+
+        for (var i = history.length - 1; i >= 0; i--) {
+          var p = history[i];
+          // Drift
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vx *= 0.96;
+          p.vy *= 0.96;
+          // Fade
+          p.life -= p.decay;
+
+          if (p.life <= 0) {
+            history.splice(i, 1);
+            continue;
+          }
+
+          var fadeIn = Math.min(p.life * 5, 1); // quick fade-in
+          var fadeOut = p.life * p.life; // quadratic fade-out
+          var a = p.alpha * fadeIn * fadeOut;
+
+          // Organic size pulse
+          var pulse = 1 + Math.sin(time * 3 + i * 0.7) * 0.08;
+          var r = p.radius * pulse * (0.5 + p.life * 0.5);
+
+          drawGlow(p.x, p.y, r, p.h, p.s, p.l, a);
+
+          // Inner brighter core
+          if (a > 0.08) {
+            drawGlow(p.x, p.y, r * 0.35, p.h, p.s + 5, p.l + 12, a * 0.6);
+          }
+        }
+
+        // Hot core at cursor when moving
+        if (onPage && intensity > 0.05) {
+          var col = getCurrentColor();
+          var coreA = intensity * 0.55;
+          drawGlow(mx, my, 90 + intensity * 60, col[0], col[1], col[2] + 10, coreA);
+          drawGlow(mx, my, 40 + intensity * 30, (col[0] + 30) % 360, col[1] + 5, col[2] + 20, coreA * 0.7);
+        }
+
+        ctx.globalCompositeOperation = 'source-over';
+      }
+
+      prevMx = mx;
+      prevMy = my;
       requestAnimationFrame(animate);
     })();
   }
