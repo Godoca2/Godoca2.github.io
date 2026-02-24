@@ -47,7 +47,7 @@
     });
   });
 
-  // ── Aurora Wisps Effect (DagsHub-style) ──
+  // ── Swirling Vortex Effect (DagsHub-style) ──
   var canvas = document.getElementById('cursor-canvas');
   if (canvas && window.matchMedia('(pointer: fine)').matches &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -62,7 +62,9 @@
     resize();
     window.addEventListener('resize', resize);
 
+    // Mouse tracking with smooth follow
     var mx = window.innerWidth / 2, my = window.innerHeight / 2;
+    var cx = mx, cy = my; // smoothed cursor position
     var onPage = false;
 
     document.addEventListener('mousemove', function (e) {
@@ -74,120 +76,97 @@
       onPage = false;
     });
 
-    // ── Wisp (flowing aurora ribbon) ──
-    // Each wisp is a chain of nodes that follow the cursor at different speeds
-    var NUM_WISPS = 5;
-    var NODES_PER_WISP = 25;
-    var wisps = [];
-
-    // DagsHub palette: green → teal → cyan → yellow-green (aurora colors)
-    var wispConfigs = [
-      { hue: 155, sat: 80, light: 55, width: 180, speed: 0.020, offsetX: 0,   offsetY: 0,   alpha: 0.07 },
-      { hue: 130, sat: 75, light: 50, width: 140, speed: 0.013, offsetX: 80,  offsetY: -60, alpha: 0.06 },
-      { hue: 175, sat: 85, light: 50, width: 160, speed: 0.016, offsetX: -70, offsetY: 40,  alpha: 0.055 },
-      { hue: 60,  sat: 70, light: 55, width: 120, speed: 0.010, offsetX: 50,  offsetY: 80,  alpha: 0.045 },
-      { hue: 190, sat: 80, light: 45, width: 100, speed: 0.008, offsetX: -90, offsetY: -40, alpha: 0.04  },
-    ];
-
-    for (var w = 0; w < NUM_WISPS; w++) {
-      var nodes = [];
-      for (var n = 0; n < NODES_PER_WISP; n++) {
-        nodes.push({ x: mx, y: my });
-      }
-      wisps.push(nodes);
+    // Vortex arms — large glowing blobs that orbit the cursor
+    var NUM_ARMS = 7;
+    var arms = [];
+    for (var i = 0; i < NUM_ARMS; i++) {
+      arms.push({
+        angle: (Math.PI * 2 / NUM_ARMS) * i,
+        radius: 30 + i * 18,         // orbit distance from center
+        size: 200 - i * 12,           // blob size (largest at center)
+        speed: 0.8 + i * 0.15,       // angular speed
+        phase: i * 0.9,              // phase offset
+        hue: 90 + i * 15,            // green → yellow range
+      });
     }
 
     var time = 0;
+
+    function drawBlob(x, y, r, h, s, l, a) {
+      var g = ctx.createRadialGradient(x, y, 0, x, y, r);
+      g.addColorStop(0,   'hsla(' + h + ',' + s + '%,' + l + '%,' + a + ')');
+      g.addColorStop(0.3, 'hsla(' + h + ',' + s + '%,' + (l - 5) + '%,' + (a * 0.7) + ')');
+      g.addColorStop(0.6, 'hsla(' + h + ',' + (s - 10) + '%,' + (l - 15) + '%,' + (a * 0.3) + ')');
+      g.addColorStop(1,   'transparent');
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fill();
+    }
 
     (function animate() {
       var W = window.innerWidth, H = window.innerHeight;
       ctx.clearRect(0, 0, W, H);
 
-      time += 0.008;
+      time += 0.012;
 
-      // Update each wisp
-      for (var w = 0; w < NUM_WISPS; w++) {
-        var cfg = wispConfigs[w];
-        var nodes = wisps[w];
+      // Smooth cursor follow
+      cx += (mx - cx) * 0.06;
+      cy += (my - cy) * 0.06;
 
-        // Target: cursor + unique offset that orbits slowly
-        var orbitAngle = time * (0.3 + w * 0.15) + w * 1.2;
-        var orbitRadius = 40 + w * 25;
-        var targetX = mx + cfg.offsetX + Math.sin(orbitAngle) * orbitRadius;
-        var targetY = my + cfg.offsetY + Math.cos(orbitAngle * 0.7) * orbitRadius;
+      ctx.globalCompositeOperation = 'lighter';
 
-        // Head follows target
-        var headEase = cfg.speed * 3;
-        nodes[0].x += (targetX - nodes[0].x) * headEase;
-        nodes[0].y += (targetY - nodes[0].y) * headEase;
+      // === Outer ambient glow ===
+      drawBlob(cx, cy, 350, 140, 60, 25, 0.06);
+      drawBlob(cx, cy, 250, 120, 70, 30, 0.08);
 
-        // Each subsequent node follows the previous with decreasing easing
-        for (var n = 1; n < NODES_PER_WISP; n++) {
-          var ease = cfg.speed * (1.0 - n * 0.025);
-          if (ease < 0.003) ease = 0.003;
+      // === Swirling arm blobs ===
+      for (var i = 0; i < NUM_ARMS; i++) {
+        var arm = arms[i];
 
-          // Add perpendicular wave motion for flowing feel
-          var waveAngle = time * (1.5 + w * 0.2) + n * 0.3;
-          var waveAmp = 15 + n * 3;
-          var prevDx = n > 1 ? nodes[n-1].x - nodes[n-2].x : nodes[0].x - targetX;
-          var prevDy = n > 1 ? nodes[n-1].y - nodes[n-2].y : nodes[0].y - targetY;
-          var len = Math.sqrt(prevDx * prevDx + prevDy * prevDy) || 1;
-          var perpX = -prevDy / len;
-          var perpY = prevDx / len;
+        // Spiral motion: radius pulses, angle rotates
+        var spiralR = arm.radius + Math.sin(time * 1.5 + arm.phase) * 25;
+        var a = arm.angle + time * arm.speed;
 
-          var tx = nodes[n-1].x + perpX * Math.sin(waveAngle) * waveAmp;
-          var ty = nodes[n-1].y + perpY * Math.sin(waveAngle) * waveAmp;
+        // Position in orbit
+        var ax = cx + Math.cos(a) * spiralR;
+        var ay = cy + Math.sin(a) * spiralR;
 
-          nodes[n].x += (tx - nodes[n].x) * ease;
-          nodes[n].y += (ty - nodes[n].y) * ease;
-        }
+        // Add secondary wobble for organic feel
+        ax += Math.sin(time * 2.3 + i * 2) * 15;
+        ay += Math.cos(time * 1.8 + i * 1.7) * 12;
 
-        // ── Render wisp as gradient ribbon ──
-        if (nodes.length < 3) continue;
+        // Size pulses
+        var size = arm.size + Math.sin(time * 1.2 + arm.phase) * 30;
 
-        // Draw multiple layered strokes for soft glow effect
-        var layers = [
-          { widthMul: 1.0, alphaMul: 0.3 },
-          { widthMul: 0.6, alphaMul: 0.5 },
-          { widthMul: 0.25, alphaMul: 0.8 },
-          { widthMul: 0.08, alphaMul: 1.0 },
-        ];
+        // Hue shifts slowly
+        var h = arm.hue + Math.sin(time * 0.5 + i) * 20;
 
-        for (var li = 0; li < layers.length; li++) {
-          var layer = layers[li];
-          ctx.beginPath();
-          ctx.moveTo(nodes[0].x, nodes[0].y);
+        // Outer soft glow
+        drawBlob(ax, ay, size, h, 80, 50, 0.15);
 
-          for (var n = 1; n < nodes.length - 1; n++) {
-            var xc = (nodes[n].x + nodes[n + 1].x) / 2;
-            var yc = (nodes[n].y + nodes[n + 1].y) / 2;
-            ctx.quadraticCurveTo(nodes[n].x, nodes[n].y, xc, yc);
-          }
+        // Middle layer — brighter
+        drawBlob(ax, ay, size * 0.55, h + 10, 90, 60, 0.25);
 
-          var last = nodes[nodes.length - 1];
-          ctx.lineTo(last.x, last.y);
+        // Inner bright core
+        drawBlob(ax, ay, size * 0.25, h + 20, 95, 75, 0.4);
+      }
 
-          // Hue shifts along the wisp
-          var h1 = cfg.hue;
-          var h2 = (cfg.hue + 40) % 360;
+      // === Bright central core (where arms overlap = white-hot) ===
+      // Main bright center
+      drawBlob(cx, cy, 120, 80, 90, 70, 0.45);
+      drawBlob(cx, cy, 70,  70, 95, 80, 0.55);
+      drawBlob(cx, cy, 35,  60, 100, 90, 0.7);
 
-          // Create gradient along path (approximate with start→end)
-          var grad = ctx.createLinearGradient(
-            nodes[0].x, nodes[0].y,
-            last.x, last.y
-          );
-          var a = cfg.alpha * layer.alphaMul;
-          grad.addColorStop(0, 'hsla(' + h1 + ',' + cfg.sat + '%,' + cfg.light + '%,' + a + ')');
-          grad.addColorStop(0.5, 'hsla(' + ((h1 + h2) / 2) + ',' + cfg.sat + '%,' + (cfg.light + 5) + '%,' + (a * 0.8) + ')');
-          grad.addColorStop(1, 'hsla(' + h2 + ',' + cfg.sat + '%,' + cfg.light + '%,' + (a * 0.3) + ')');
-
-          ctx.strokeStyle = grad;
-          ctx.lineWidth = cfg.width * layer.widthMul;
-          ctx.lineCap = 'round';
-          ctx.lineJoin = 'round';
-          ctx.globalCompositeOperation = 'lighter';
-          ctx.stroke();
-        }
+      // === Trailing afterimages — secondary vortex delayed ===
+      var tx = cx + (cx - mx) * 1.5; // trails behind cursor
+      var ty = cy + (cy - my) * 1.5;
+      for (var i = 0; i < 4; i++) {
+        var ta = time * (0.6 + i * 0.1) + i * 1.5;
+        var tr = 50 + i * 30;
+        var ttx = tx + Math.cos(ta) * tr;
+        var tty = ty + Math.sin(ta) * tr;
+        drawBlob(ttx, tty, 140 - i * 15, 100 + i * 20, 75, 45, 0.08);
       }
 
       ctx.globalCompositeOperation = 'source-over';
