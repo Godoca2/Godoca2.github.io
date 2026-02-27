@@ -21,8 +21,10 @@ Mi enfoque es construir **infraestructura de datos como sistemas**, no como cole
 
 ## Formación
 
-- **Magíster en Data Science** — Universidad del Desarrollo, UDD (2025 – 2026)
-- **Ingeniero de Datos**
+- **Máster Data Science** - (Facultad Ciencias de la ingeniería, Universidad del Desarrollo)
+- **Diplomado en Business Intelligence** - (Facultad de Economia y negocios, Universidad de Chile)
+- **Diplomado en Ciencia de Datos** - (Facultad de Matemáticas, Pontificia Universidad Católica de Chile)
+- **Licenciado en Ingeniería Informática y Multimedia** - (Facultad de Negocios y Tecnología, UNIACC)
 
 
 ## Competencias Técnicas
